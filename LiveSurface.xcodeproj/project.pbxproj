@@ -7,23 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C2D6825224D01A9E000E4E79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6825124D01A9E000E4E79 /* AppDelegate.swift */; };
-		C2D6825424D01A9E000E4E79 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6825324D01A9E000E4E79 /* SceneDelegate.swift */; };
-		C2D6825624D01A9F000E4E79 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6825524D01A9F000E4E79 /* ContentView.swift */; };
+		C2D6825224D01A9E000E4E79 /* PJCAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6825124D01A9E000E4E79 /* PJCAppDelegate.swift */; };
+		C2D6825424D01A9E000E4E79 /* PJCSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6825324D01A9E000E4E79 /* PJCSceneDelegate.swift */; };
+		C2D6825624D01A9F000E4E79 /* PJCLiveSurfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6825524D01A9F000E4E79 /* PJCLiveSurfaceView.swift */; };
 		C2D6825824D01AA3000E4E79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2D6825724D01AA3000E4E79 /* Assets.xcassets */; };
 		C2D6825B24D01AA3000E4E79 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2D6825A24D01AA3000E4E79 /* Preview Assets.xcassets */; };
 		C2D6825E24D01AA3000E4E79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2D6825C24D01AA3000E4E79 /* LaunchScreen.storyboard */; };
+		C2D6826924D01C0B000E4E79 /* PJCLiveSurfaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6826824D01C0B000E4E79 /* PJCLiveSurfaceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C2D6824E24D01A9E000E4E79 /* LiveSurface.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveSurface.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C2D6825124D01A9E000E4E79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C2D6825324D01A9E000E4E79 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C2D6825524D01A9F000E4E79 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C2D6825124D01A9E000E4E79 /* PJCAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCAppDelegate.swift; sourceTree = "<group>"; };
+		C2D6825324D01A9E000E4E79 /* PJCSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCSceneDelegate.swift; sourceTree = "<group>"; };
+		C2D6825524D01A9F000E4E79 /* PJCLiveSurfaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCLiveSurfaceView.swift; sourceTree = "<group>"; };
 		C2D6825724D01AA3000E4E79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2D6825A24D01AA3000E4E79 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C2D6825D24D01AA3000E4E79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2D6825F24D01AA3000E4E79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2D6826824D01C0B000E4E79 /* PJCLiveSurfaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCLiveSurfaceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +58,11 @@
 		C2D6825024D01A9E000E4E79 /* LiveSurface */ = {
 			isa = PBXGroup;
 			children = (
-				C2D6825124D01A9E000E4E79 /* AppDelegate.swift */,
-				C2D6825324D01A9E000E4E79 /* SceneDelegate.swift */,
-				C2D6825524D01A9F000E4E79 /* ContentView.swift */,
+				C2D6825124D01A9E000E4E79 /* PJCAppDelegate.swift */,
+				C2D6825324D01A9E000E4E79 /* PJCSceneDelegate.swift */,
+				C2D6826524D01B01000E4E79 /* Model */,
+				C2D6826624D01B0D000E4E79 /* Controller */,
+				C2D6826724D01B15000E4E79 /* View */,
 				C2D6825724D01AA3000E4E79 /* Assets.xcassets */,
 				C2D6825C24D01AA3000E4E79 /* LaunchScreen.storyboard */,
 				C2D6825F24D01AA3000E4E79 /* Info.plist */,
@@ -73,6 +77,29 @@
 				C2D6825A24D01AA3000E4E79 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C2D6826524D01B01000E4E79 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C2D6826624D01B0D000E4E79 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C2D6826824D01C0B000E4E79 /* PJCLiveSurfaceViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C2D6826724D01B15000E4E79 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C2D6825524D01A9F000E4E79 /* PJCLiveSurfaceView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,9 +173,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2D6825224D01A9E000E4E79 /* AppDelegate.swift in Sources */,
-				C2D6825424D01A9E000E4E79 /* SceneDelegate.swift in Sources */,
-				C2D6825624D01A9F000E4E79 /* ContentView.swift in Sources */,
+				C2D6825224D01A9E000E4E79 /* PJCAppDelegate.swift in Sources */,
+				C2D6825424D01A9E000E4E79 /* PJCSceneDelegate.swift in Sources */,
+				C2D6826924D01C0B000E4E79 /* PJCLiveSurfaceViewController.swift in Sources */,
+				C2D6825624D01A9F000E4E79 /* PJCLiveSurfaceView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

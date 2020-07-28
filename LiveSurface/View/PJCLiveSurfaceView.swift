@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  PJCLiveSurfaceView.swift
 //  LiveSurface
 //
 //  Created by Peter Spencer on 28/07/2020.
@@ -8,14 +8,19 @@
 
 import SwiftUI
 
-struct ContentView: View {
+
+struct PJCLiveSurfaceView: View
+{
     var body: some View {
         Text("Hello, World!")
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+struct PJCLiveSurfaceView_Previews: PreviewProvider
+{
+    static var previews: some View
+    {
+        PJCLiveSurfaceView()
     }
 }
+
