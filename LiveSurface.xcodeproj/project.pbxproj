@@ -110,8 +110,8 @@
 			children = (
 				C29B1BC124D05D740023DEE4 /* PJCLiveSurfaceProject.swift */,
 				C2D6826E24D023D1000E4E79 /* PJCLiveSurfaceItem.swift */,
-				C2D6827024D02BF2000E4E79 /* PJCGeometry.swift */,
 				C29B1BBA24D043090023DEE4 /* PJCSimpleShapes.swift */,
+				C2D6827024D02BF2000E4E79 /* PJCGeometry.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

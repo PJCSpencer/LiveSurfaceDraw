@@ -13,14 +13,14 @@ struct PJCLiveSurfaceView: View
 {
     // MARK: - Property(s)
     
-    var project: PJCLiveSurfaceProject = PJCLiveSurfaceProject()
+    private(set) var project: PJCLiveSurfaceProject = PJCLiveSurfaceProject()
     
     
     // MARK: - Implementing a Custom View
     
     var body: some View
     {
-        PJCCanvasView(self.project)
+        PJCCanvasView(project: self.project)
     }
 }
 

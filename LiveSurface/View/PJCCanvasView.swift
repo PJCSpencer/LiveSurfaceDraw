@@ -25,7 +25,7 @@ struct PJCCanvasView: View
         }
     }
     
-    @State private(set) var selection: PJCLiveSurfaceItem? = nil
+    @State private(set) var selection: PJCLiveSurfaceItem?
     
     
     // MARK: - Implementing a Custom View
@@ -38,23 +38,19 @@ struct PJCCanvasView: View
             
             ForEach(self.project.items)
             { (item) in item.path(item).fill(Color.black) }
+            
+            PJCTransformView(item: self.$selection)
         }
         .gesture(self.tap)
         .drawingGroup()
     }
-    
-    
-    // MARK: - Initialisation
-    
-    init(_ project: PJCLiveSurfaceProject)
-    { self.project = project }
 }
 
 struct PJCCanvasView_Previews: PreviewProvider
 {
     static var previews: some View
     {
-        PJCCanvasView(PJCLiveSurfaceProject())
+        PJCCanvasView(project: PJCLiveSurfaceProject())
     }
 }
 

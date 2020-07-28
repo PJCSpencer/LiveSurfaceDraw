@@ -18,7 +18,7 @@ class PJCLiveSurfaceProject: ObservableObject
     @Published private(set) var items: [PJCLiveSurfaceItem] = [] // PJCLiveSurfaceItem.mocked
     
     
-    // MARK: -
+    // MARK: - Initialisation
     
     init()
     {

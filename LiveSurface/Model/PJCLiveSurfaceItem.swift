@@ -9,6 +9,13 @@
 import SwiftUI
 
 
+typealias PJCLiveSurfaceItemPathProviderHandler = (PJCLiveSurfaceItem) -> Path
+
+protocol PJCLiveSurfaceItemPathProvider
+{
+    static func path(_ item: PJCLiveSurfaceItem) -> Path
+}
+
 class PJCLiveSurfaceItem: Identifiable
 {
     // MARK: - Specifying the Identified Item
@@ -24,7 +31,7 @@ class PJCLiveSurfaceItem: Identifiable
     
     let geometry: PJCGeometry
     
-    let path: PJCPathProviderHandler
+    let path: PJCLiveSurfaceItemPathProviderHandler
     
     
     // MARK: - Initialisation
@@ -32,12 +39,20 @@ class PJCLiveSurfaceItem: Identifiable
     init(_ index: Int,
          name: String,
          geometry: PJCGeometry,
-         path: @escaping PJCPathProviderHandler)
+         path: @escaping PJCLiveSurfaceItemPathProviderHandler)
     {
         self.index = index
         self.name = name
         self.geometry = geometry
         self.path = path
+    }
+    
+    init()
+    {
+        self.index = -1
+        self.name = ""
+        self.geometry = PJCGeometry(.zero, size: .zero)
+        self.path = { (_) in return Path() }
     }
 }
 

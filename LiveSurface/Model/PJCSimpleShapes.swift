@@ -9,43 +9,35 @@
 import SwiftUI
 
 
-typealias PJCPathProviderHandler = (PJCLiveSurfaceItem) -> Path
-
-protocol PJCPathProvider
-{
-    static func path(_ item: PJCLiveSurfaceItem) -> Path
-}
-
 class PJCSimpleShapes
 {
     // MARK: - Constant(s)
     
-    static let supported: [PJCPathProviderHandler] =
+    static let supported: [PJCLiveSurfaceItemPathProviderHandler] =
     [
         PJCCircle.path,
         PJCSquare.path,
         PJCTriangle.path
     ]
     
+    
     // MARK: - Utility
     
-    class func random() -> PJCPathProviderHandler
-    {
-        return Self.supported[Int.random(in: 0..<Self.supported.count)]
-    }
+    class func random() -> PJCLiveSurfaceItemPathProviderHandler
+    { return Self.supported[Int.random(in: 0..<Self.supported.count)] }
 }
 
 // MARK: - Shape(s)
-struct PJCCircle: Shape, PJCPathProvider
+struct PJCCircle: Shape, PJCLiveSurfaceItemPathProvider
 {
-    static func path(_ item: PJCLiveSurfaceItem) -> Path // TODO:Support protocol ...
+    static func path(_ item: PJCLiveSurfaceItem) -> Path
     { PJCCircle().path(in: item.geometry.rect) }
     
     func path(in rect: CGRect) -> Path
     { return Path(ellipseIn: rect) }
 }
 
-struct PJCSquare: Shape, PJCPathProvider
+struct PJCSquare: Shape, PJCLiveSurfaceItemPathProvider
 {
     static func path(_ item: PJCLiveSurfaceItem) -> Path 
     { PJCSquare().path(in: item.geometry.rect) }
@@ -54,7 +46,7 @@ struct PJCSquare: Shape, PJCPathProvider
     { return Path(rect) }
 }
 
-struct PJCTriangle: Shape, PJCPathProvider
+struct PJCTriangle: Shape, PJCLiveSurfaceItemPathProvider
 {
     static func path(_ item: PJCLiveSurfaceItem) -> Path
     { PJCTriangle().path(in: item.geometry.rect) }

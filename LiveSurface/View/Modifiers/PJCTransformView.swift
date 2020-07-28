@@ -13,7 +13,7 @@ struct PJCTransformView: View
 {
     // MARK: - Property(s)
     
-    let item: PJCLiveSurfaceItem
+    @Binding var item: PJCLiveSurfaceItem?
     
     fileprivate var dash: [CGFloat] = [6]
     
@@ -25,21 +25,19 @@ struct PJCTransformView: View
     var body: some View
     {
         Rectangle()
+            .offset(self.item?.geometry.origin ?? .zero)
             .stroke(Color.blue,
                     style: StrokeStyle(lineWidth: 2.0,
                                        dash: self.dash,
                                        dashPhase: self.phase))
-            .frame(width: self.item.geometry.size.width,
-                   height: self.item.geometry.size.height,
-                   alignment: self.item.geometry.alignment)
-            .onAppear { self.phase -= 12 }
-            .animation(Animation.linear.repeatForever(autoreverses: false).speed(0.5))
+            .frame(width: self.item?.geometry.size.width ?? 0,
+                   height: self.item?.geometry.size.height ?? 0,
+                   alignment: self.item?.geometry.alignment ?? .center)
+            /*.onAppear { self.phase -= 12 }
+            .animation(Animation.linear.repeatForever(autoreverses: false).speed(0.5))*/
     }
     
-    
-    // MARK: -
-    
-    init(_ item: PJCLiveSurfaceItem)
-    { self.item = item }
+    init(item: Binding<PJCLiveSurfaceItem?>)
+    { self._item = item }
 }
 
