@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		C29B1BB924D02ED50023DEE4 /* PJCCanvasView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B1BB824D02ED50023DEE4 /* PJCCanvasView+Additions.swift */; };
 		C29B1BBB24D043090023DEE4 /* PJCSimpleShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B1BBA24D043090023DEE4 /* PJCSimpleShapes.swift */; };
+		C29B1BBD24D046E50023DEE4 /* PJCTransformViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B1BBC24D046E50023DEE4 /* PJCTransformViewController.swift */; };
+		C29B1BC024D047140023DEE4 /* PJCTransformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B1BBF24D047140023DEE4 /* PJCTransformView.swift */; };
+		C29B1BC224D05D740023DEE4 /* PJCLiveSurfaceProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B1BC124D05D740023DEE4 /* PJCLiveSurfaceProject.swift */; };
 		C2D6825224D01A9E000E4E79 /* PJCAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6825124D01A9E000E4E79 /* PJCAppDelegate.swift */; };
 		C2D6825424D01A9E000E4E79 /* PJCSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6825324D01A9E000E4E79 /* PJCSceneDelegate.swift */; };
 		C2D6825624D01A9F000E4E79 /* PJCLiveSurfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6825524D01A9F000E4E79 /* PJCLiveSurfaceView.swift */; };
@@ -25,6 +28,9 @@
 /* Begin PBXFileReference section */
 		C29B1BB824D02ED50023DEE4 /* PJCCanvasView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PJCCanvasView+Additions.swift"; sourceTree = "<group>"; };
 		C29B1BBA24D043090023DEE4 /* PJCSimpleShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCSimpleShapes.swift; sourceTree = "<group>"; };
+		C29B1BBC24D046E50023DEE4 /* PJCTransformViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCTransformViewController.swift; sourceTree = "<group>"; };
+		C29B1BBF24D047140023DEE4 /* PJCTransformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCTransformView.swift; sourceTree = "<group>"; };
+		C29B1BC124D05D740023DEE4 /* PJCLiveSurfaceProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCLiveSurfaceProject.swift; sourceTree = "<group>"; };
 		C2D6824E24D01A9E000E4E79 /* LiveSurface.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveSurface.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2D6825124D01A9E000E4E79 /* PJCAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCAppDelegate.swift; sourceTree = "<group>"; };
 		C2D6825324D01A9E000E4E79 /* PJCSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCSceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +57,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C29B1BBE24D046FD0023DEE4 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				C29B1BBF24D047140023DEE4 /* PJCTransformView.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
 		C2D6824524D01A9E000E4E79 = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +108,7 @@
 		C2D6826524D01B01000E4E79 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C29B1BC124D05D740023DEE4 /* PJCLiveSurfaceProject.swift */,
 				C2D6826E24D023D1000E4E79 /* PJCLiveSurfaceItem.swift */,
 				C2D6827024D02BF2000E4E79 /* PJCGeometry.swift */,
 				C29B1BBA24D043090023DEE4 /* PJCSimpleShapes.swift */,
@@ -105,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				C2D6826824D01C0B000E4E79 /* PJCLiveSurfaceViewController.swift */,
+				C29B1BBC24D046E50023DEE4 /* PJCTransformViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -116,6 +132,7 @@
 				C2D6826A24D01F55000E4E79 /* PJCCanvasView.swift */,
 				C29B1BB824D02ED50023DEE4 /* PJCCanvasView+Additions.swift */,
 				C2D6826C24D01F66000E4E79 /* PJCLayersView.swift */,
+				C29B1BBE24D046FD0023DEE4 /* Modifiers */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -192,10 +209,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2D6826D24D01F66000E4E79 /* PJCLayersView.swift in Sources */,
+				C29B1BC024D047140023DEE4 /* PJCTransformView.swift in Sources */,
 				C2D6826B24D01F55000E4E79 /* PJCCanvasView.swift in Sources */,
+				C29B1BBD24D046E50023DEE4 /* PJCTransformViewController.swift in Sources */,
 				C2D6825224D01A9E000E4E79 /* PJCAppDelegate.swift in Sources */,
 				C29B1BBB24D043090023DEE4 /* PJCSimpleShapes.swift in Sources */,
 				C2D6826F24D023D1000E4E79 /* PJCLiveSurfaceItem.swift in Sources */,
+				C29B1BC224D05D740023DEE4 /* PJCLiveSurfaceProject.swift in Sources */,
 				C2D6825424D01A9E000E4E79 /* PJCSceneDelegate.swift in Sources */,
 				C2D6827124D02BF2000E4E79 /* PJCGeometry.swift in Sources */,
 				C2D6826924D01C0B000E4E79 /* PJCLiveSurfaceViewController.swift in Sources */,

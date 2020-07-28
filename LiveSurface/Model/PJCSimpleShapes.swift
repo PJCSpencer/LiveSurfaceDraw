@@ -11,6 +11,11 @@ import SwiftUI
 
 typealias PJCPathProviderHandler = (PJCLiveSurfaceItem) -> Path
 
+protocol PJCPathProvider
+{
+    static func path(_ item: PJCLiveSurfaceItem) -> Path
+}
+
 class PJCSimpleShapes
 {
     // MARK: - Constant(s)
@@ -31,7 +36,7 @@ class PJCSimpleShapes
 }
 
 // MARK: - Shape(s)
-struct PJCCircle: Shape
+struct PJCCircle: Shape, PJCPathProvider
 {
     static func path(_ item: PJCLiveSurfaceItem) -> Path // TODO:Support protocol ...
     { PJCCircle().path(in: item.geometry.rect) }
@@ -40,7 +45,7 @@ struct PJCCircle: Shape
     { return Path(ellipseIn: rect) }
 }
 
-struct PJCSquare: Shape
+struct PJCSquare: Shape, PJCPathProvider
 {
     static func path(_ item: PJCLiveSurfaceItem) -> Path 
     { PJCSquare().path(in: item.geometry.rect) }
@@ -49,12 +54,10 @@ struct PJCSquare: Shape
     { return Path(rect) }
 }
 
-struct PJCTriangle: Shape
+struct PJCTriangle: Shape, PJCPathProvider
 {
     static func path(_ item: PJCLiveSurfaceItem) -> Path
-    {
-        PJCTriangle().path(in: item.geometry.rect)
-    }
+    { PJCTriangle().path(in: item.geometry.rect) }
     
     func path(in rect: CGRect) -> Path
     {

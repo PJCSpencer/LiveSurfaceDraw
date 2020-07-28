@@ -13,14 +13,14 @@ struct PJCLiveSurfaceView: View
 {
     // MARK: - Property(s)
     
-    @State var items: [PJCLiveSurfaceItem] = PJCLiveSurfaceItem.mocked
+    var project: PJCLiveSurfaceProject = PJCLiveSurfaceProject()
     
     
-    // MARK: -
+    // MARK: - Implementing a Custom View
     
     var body: some View
     {
-        PJCCanvasView(self.items)
+        PJCCanvasView(self.project)
     }
 }
 

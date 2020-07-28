@@ -45,6 +45,11 @@ extension PJCLiveSurfaceItem // TODO:Support protocol ...
 {
     static let mocked: [PJCLiveSurfaceItem] = (0..<10).map({ index in
         
+        PJCLiveSurfaceItem.create(index)
+    })
+    
+    static func create(_ index: Int) -> PJCLiveSurfaceItem
+    {
         let radius: CGFloat = 50.0
         let scaledRadius: CGFloat = radius * 0.5
         let width = UIScreen.main.bounds.width - radius
@@ -59,8 +64,8 @@ extension PJCLiveSurfaceItem // TODO:Support protocol ...
 
         return PJCLiveSurfaceItem(index,
                                   name: "Untitled_\(index)",
-            geometry: geometry,
-            path: PJCSimpleShapes.random())
-    })
+                                  geometry: geometry,
+                                  path: PJCSimpleShapes.random())
+    }
 }
 
