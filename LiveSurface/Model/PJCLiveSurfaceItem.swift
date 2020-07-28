@@ -46,14 +46,6 @@ class PJCLiveSurfaceItem: Identifiable
         self.geometry = geometry
         self.path = path
     }
-    
-    init()
-    {
-        self.index = -1
-        self.name = ""
-        self.geometry = PJCGeometry(.zero, size: .zero)
-        self.path = { (_) in return Path() }
-    }
 }
 
 extension PJCLiveSurfaceItem // TODO:Support protocol ...
@@ -65,7 +57,7 @@ extension PJCLiveSurfaceItem // TODO:Support protocol ...
     
     static func create(_ index: Int) -> PJCLiveSurfaceItem
     {
-        let radius: CGFloat = 50.0
+        let radius: CGFloat = 100.0
         let scaledRadius: CGFloat = radius * 0.5
         let width = UIScreen.main.bounds.width - radius
         let height = UIScreen.main.bounds.height - radius

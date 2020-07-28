@@ -15,21 +15,21 @@ class PJCLiveSurfaceProject: ObservableObject
     
     @Published var title: String = "Untitled Project"
     
-    @Published private(set) var items: [PJCLiveSurfaceItem] = [] // PJCLiveSurfaceItem.mocked
+    @Published private(set) var items: [PJCLiveSurfaceItem] = PJCLiveSurfaceItem.mocked
     
     
     // MARK: - Initialisation
     
     init()
     {
-        for i in 1...10
+        /*for i in 1...10
         {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(i))
             {
                 let element = PJCLiveSurfaceItem.create(self.items.count)
                 self.items.append(element)
             }
-        }
+        }*/
     }
 }
 

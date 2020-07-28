@@ -15,7 +15,7 @@ struct PJCCanvasView: View
     
     @ObservedObject private(set) var project: PJCLiveSurfaceProject
     
-    fileprivate var tap: some Gesture
+    fileprivate var gesture: some Gesture
     {
         DragGesture(minimumDistance: 0) // TODO:Researching using UIViewRepresentable as a background ...
             .onEnded { action in
@@ -37,11 +37,12 @@ struct PJCCanvasView: View
             Color(red: 1, green: 1, blue: 1).edgesIgnoringSafeArea(.all)
             
             ForEach(self.project.items)
-            { (item) in item.path(item).fill(Color.black) }
+            { (item) in PJCCanvasView.body(item) }
             
+            // TODO:Discover how to support injecting and optional 'modifier' view protocol ...
             PJCTransformView(item: self.$selection)
         }
-        .gesture(self.tap)
+        .gesture(self.gesture)
         .drawingGroup()
     }
 }

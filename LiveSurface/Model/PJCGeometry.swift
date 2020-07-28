@@ -14,9 +14,9 @@ class PJCGeometry
 {
     // MARK: - Property(s)
     
-    let origin: CGPoint
+    var origin: CGPoint
     
-    let size: CGSize
+    var size: CGSize
     
     let alignment: Alignment = .center
     

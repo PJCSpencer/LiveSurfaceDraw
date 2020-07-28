@@ -19,23 +19,37 @@ struct PJCTransformView: View
     
     @State fileprivate var phase: CGFloat = 0
     
+    fileprivate var gesture: some Gesture // TODO:Needs to be refactored to support gesture sequencing ...
+    {
+        DragGesture()
+            .onChanged { value in }
+            .onEnded { _ in }
+    }
     
-    // MARK: -
+    
+    // MARK: - Implementing a Custom View
     
     var body: some View
     {
-        Rectangle()
-            .offset(self.item?.geometry.origin ?? .zero)
-            .stroke(Color.blue,
-                    style: StrokeStyle(lineWidth: 2.0,
-                                       dash: self.dash,
-                                       dashPhase: self.phase))
-            .frame(width: self.item?.geometry.size.width ?? 0,
-                   height: self.item?.geometry.size.height ?? 0,
-                   alignment: self.item?.geometry.alignment ?? .center)
-            /*.onAppear { self.phase -= 12 }
-            .animation(Animation.linear.repeatForever(autoreverses: false).speed(0.5))*/
+        ZStack()
+        {
+            Rectangle()
+                .offset(self.item?.geometry.origin ?? .zero)
+                .stroke(Color.blue,
+                        style: StrokeStyle(lineWidth: 1.5,
+                                           dash: self.dash,
+                                           dashPhase: self.phase))
+                .frame(width: self.item?.geometry.size.width ?? 0,
+                       height: self.item?.geometry.size.height ?? 0,
+                       alignment: self.item?.geometry.alignment ?? .center)
+                .gesture(self.gesture)
+                
+             // TODO:Support anchors ...
+        }
     }
+    
+    
+    // MARK: - Initialisation
     
     init(item: Binding<PJCLiveSurfaceItem?>)
     { self._item = item }
