@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C29B1BB924D02ED50023DEE4 /* PJCCanvasView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B1BB824D02ED50023DEE4 /* PJCCanvasView+Additions.swift */; };
 		C2D6825224D01A9E000E4E79 /* PJCAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6825124D01A9E000E4E79 /* PJCAppDelegate.swift */; };
 		C2D6825424D01A9E000E4E79 /* PJCSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6825324D01A9E000E4E79 /* PJCSceneDelegate.swift */; };
 		C2D6825624D01A9F000E4E79 /* PJCLiveSurfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6825524D01A9F000E4E79 /* PJCLiveSurfaceView.swift */; };
@@ -16,9 +17,12 @@
 		C2D6826924D01C0B000E4E79 /* PJCLiveSurfaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6826824D01C0B000E4E79 /* PJCLiveSurfaceViewController.swift */; };
 		C2D6826B24D01F55000E4E79 /* PJCCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6826A24D01F55000E4E79 /* PJCCanvasView.swift */; };
 		C2D6826D24D01F66000E4E79 /* PJCLayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6826C24D01F66000E4E79 /* PJCLayersView.swift */; };
+		C2D6826F24D023D1000E4E79 /* PJCLiveSurfaceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6826E24D023D1000E4E79 /* PJCLiveSurfaceItem.swift */; };
+		C2D6827124D02BF2000E4E79 /* PJCGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6827024D02BF2000E4E79 /* PJCGeometry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C29B1BB824D02ED50023DEE4 /* PJCCanvasView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PJCCanvasView+Additions.swift"; sourceTree = "<group>"; };
 		C2D6824E24D01A9E000E4E79 /* LiveSurface.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveSurface.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2D6825124D01A9E000E4E79 /* PJCAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCAppDelegate.swift; sourceTree = "<group>"; };
 		C2D6825324D01A9E000E4E79 /* PJCSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCSceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +34,8 @@
 		C2D6826824D01C0B000E4E79 /* PJCLiveSurfaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCLiveSurfaceViewController.swift; sourceTree = "<group>"; };
 		C2D6826A24D01F55000E4E79 /* PJCCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCCanvasView.swift; sourceTree = "<group>"; };
 		C2D6826C24D01F66000E4E79 /* PJCLayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCLayersView.swift; sourceTree = "<group>"; };
+		C2D6826E24D023D1000E4E79 /* PJCLiveSurfaceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCLiveSurfaceItem.swift; sourceTree = "<group>"; };
+		C2D6827024D02BF2000E4E79 /* PJCGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCGeometry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,8 @@
 		C2D6826524D01B01000E4E79 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C2D6826E24D023D1000E4E79 /* PJCLiveSurfaceItem.swift */,
+				C2D6827024D02BF2000E4E79 /* PJCGeometry.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -103,6 +111,7 @@
 			children = (
 				C2D6825524D01A9F000E4E79 /* PJCLiveSurfaceView.swift */,
 				C2D6826A24D01F55000E4E79 /* PJCCanvasView.swift */,
+				C29B1BB824D02ED50023DEE4 /* PJCCanvasView+Additions.swift */,
 				C2D6826C24D01F66000E4E79 /* PJCLayersView.swift */,
 			);
 			path = View;
@@ -182,9 +191,12 @@
 				C2D6826D24D01F66000E4E79 /* PJCLayersView.swift in Sources */,
 				C2D6826B24D01F55000E4E79 /* PJCCanvasView.swift in Sources */,
 				C2D6825224D01A9E000E4E79 /* PJCAppDelegate.swift in Sources */,
+				C2D6826F24D023D1000E4E79 /* PJCLiveSurfaceItem.swift in Sources */,
 				C2D6825424D01A9E000E4E79 /* PJCSceneDelegate.swift in Sources */,
+				C2D6827124D02BF2000E4E79 /* PJCGeometry.swift in Sources */,
 				C2D6826924D01C0B000E4E79 /* PJCLiveSurfaceViewController.swift in Sources */,
 				C2D6825624D01A9F000E4E79 /* PJCLiveSurfaceView.swift in Sources */,
+				C29B1BB924D02ED50023DEE4 /* PJCCanvasView+Additions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

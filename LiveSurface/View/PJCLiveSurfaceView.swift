@@ -11,13 +11,16 @@ import SwiftUI
 
 struct PJCLiveSurfaceView: View
 {
+    // MARK: - Property(s)
+    
+    @State var items: [PJCLiveSurfaceItem] = PJCLiveSurfaceItem.mocked
+    
+    
+    // MARK: -
+    
     var body: some View
     {
-        NavigationView
-        {
-            PJCLayersView()
-            PJCCanvasView()
-        }
+        PJCCanvasView(self.items)
     }
 }
 
