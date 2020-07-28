@@ -11,8 +11,13 @@ import SwiftUI
 
 struct PJCLiveSurfaceView: View
 {
-    var body: some View {
-        Text("Hello, World!")
+    var body: some View
+    {
+        NavigationView
+        {
+            PJCLayersView()
+            PJCCanvasView()
+        }
     }
 }
 

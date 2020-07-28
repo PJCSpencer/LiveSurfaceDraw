@@ -14,6 +14,8 @@
 		C2D6825B24D01AA3000E4E79 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2D6825A24D01AA3000E4E79 /* Preview Assets.xcassets */; };
 		C2D6825E24D01AA3000E4E79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2D6825C24D01AA3000E4E79 /* LaunchScreen.storyboard */; };
 		C2D6826924D01C0B000E4E79 /* PJCLiveSurfaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6826824D01C0B000E4E79 /* PJCLiveSurfaceViewController.swift */; };
+		C2D6826B24D01F55000E4E79 /* PJCCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6826A24D01F55000E4E79 /* PJCCanvasView.swift */; };
+		C2D6826D24D01F66000E4E79 /* PJCLayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6826C24D01F66000E4E79 /* PJCLayersView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		C2D6825D24D01AA3000E4E79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2D6825F24D01AA3000E4E79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2D6826824D01C0B000E4E79 /* PJCLiveSurfaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCLiveSurfaceViewController.swift; sourceTree = "<group>"; };
+		C2D6826A24D01F55000E4E79 /* PJCCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCCanvasView.swift; sourceTree = "<group>"; };
+		C2D6826C24D01F66000E4E79 /* PJCLayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCLayersView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				C2D6825524D01A9F000E4E79 /* PJCLiveSurfaceView.swift */,
+				C2D6826A24D01F55000E4E79 /* PJCCanvasView.swift */,
+				C2D6826C24D01F66000E4E79 /* PJCLayersView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -173,6 +179,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2D6826D24D01F66000E4E79 /* PJCLayersView.swift in Sources */,
+				C2D6826B24D01F55000E4E79 /* PJCCanvasView.swift in Sources */,
 				C2D6825224D01A9E000E4E79 /* PJCAppDelegate.swift in Sources */,
 				C2D6825424D01A9E000E4E79 /* PJCSceneDelegate.swift in Sources */,
 				C2D6826924D01C0B000E4E79 /* PJCLiveSurfaceViewController.swift in Sources */,
