@@ -13,12 +13,7 @@ extension PJCCanvasView
 {
     static func body(_ item: PJCLiveSurfaceItem) -> some View
     {
-        Circle()
-            .offset(item.geometry.origin)
-            .fill(Color.gray)
-            .frame(width: item.geometry.size.width,
-                   height: item.geometry.size.height,
-                   alignment: item.geometry.alignment)
+        item.path(item).fill(Color.black) // TODO:Support styling ...
     }
 }
 

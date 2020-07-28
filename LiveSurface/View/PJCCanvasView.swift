@@ -20,14 +20,10 @@ struct PJCCanvasView: View
         DragGesture(minimumDistance: 0) // TODO:Researching using UIViewRepresentable as a background ...
             .onEnded { action in
                  
-                let results = self.items.filter({ $0.geometry.rect.contains(action.location) })
-                
-                guard let selection = results.sorted(by: { $0.index > $1.index }).first else
-                {
-                    print("Nothing selected")
-                    return
-                }
-                print("\(selection.name)")
+                let results = self.items.filter({ $0.path($0).contains(action.location) })
+
+                guard let _ = results.sorted(by: { $0.index > $1.index }).first else
+                { return }
         }
     }
     
@@ -41,7 +37,7 @@ struct PJCCanvasView: View
             Color(red: 0, green: 1, blue: 1).edgesIgnoringSafeArea(.all)
             
             ForEach(self.items)
-            { (item) in PJCCanvasView.body(item) }
+            { (item) in item.path(item).fill(Color.black) }
         }
         .gesture(self.tap)
         .drawingGroup()

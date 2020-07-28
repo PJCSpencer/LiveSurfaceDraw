@@ -24,16 +24,20 @@ class PJCLiveSurfaceItem: Identifiable
     
     let geometry: PJCGeometry
     
+    let path: PJCPathProviderHandler
+    
     
     // MARK: - Initialisation
     
     init(_ index: Int,
          name: String,
-         geometry: PJCGeometry)
+         geometry: PJCGeometry,
+         path: @escaping PJCPathProviderHandler)
     {
         self.index = index
         self.name = name
         self.geometry = geometry
+        self.path = path
     }
 }
 
@@ -52,10 +56,11 @@ extension PJCLiveSurfaceItem // TODO:Support protocol ...
         
         let geometry = PJCGeometry(pt,
                                    size: size)
-        
+
         return PJCLiveSurfaceItem(index,
                                   name: "Untitled_\(index)",
-                                  geometry: geometry)
+            geometry: geometry,
+            path: PJCSimpleShapes.random())
     })
 }
 
