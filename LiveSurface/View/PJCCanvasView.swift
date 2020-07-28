@@ -15,6 +15,22 @@ struct PJCCanvasView: View
     
     let items: [PJCLiveSurfaceItem]
     
+    fileprivate var tap: some Gesture
+    {
+        DragGesture(minimumDistance: 0) // TODO:Researching using UIViewRepresentable as a background ...
+            .onEnded { action in
+                 
+                let results = self.items.filter({ $0.geometry.rect.contains(action.location) })
+                
+                guard let selection = results.sorted(by: { $0.index > $1.index }).first else
+                {
+                    print("Nothing selected")
+                    return
+                }
+                print("\(selection.name)")
+        }
+    }
+    
     
     // MARK: -
     
@@ -26,8 +42,9 @@ struct PJCCanvasView: View
             
             ForEach(self.items)
             { (item) in PJCCanvasView.body(item) }
-            
-        }.drawingGroup()
+        }
+        .gesture(self.tap)
+        .drawingGroup()
     }
     
     
