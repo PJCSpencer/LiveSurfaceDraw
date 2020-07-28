@@ -68,6 +68,16 @@
 			path = Modifiers;
 			sourceTree = "<group>";
 		};
+		C29B1BC524D0895D0023DEE4 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				C2D6826524D01B01000E4E79 /* Model */,
+				C2D6826624D01B0D000E4E79 /* Controller */,
+				C2D6826724D01B15000E4E79 /* View */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
 		C2D6824524D01A9E000E4E79 = {
 			isa = PBXGroup;
 			children = (
@@ -89,9 +99,7 @@
 			children = (
 				C2D6825124D01A9E000E4E79 /* PJCAppDelegate.swift */,
 				C2D6825324D01A9E000E4E79 /* PJCSceneDelegate.swift */,
-				C2D6826524D01B01000E4E79 /* Model */,
-				C2D6826624D01B0D000E4E79 /* Controller */,
-				C2D6826724D01B15000E4E79 /* View */,
+				C29B1BC524D0895D0023DEE4 /* Class */,
 				C2D6825724D01AA3000E4E79 /* Assets.xcassets */,
 				C2D6825C24D01AA3000E4E79 /* LaunchScreen.storyboard */,
 				C2D6825F24D01AA3000E4E79 /* Info.plist */,
