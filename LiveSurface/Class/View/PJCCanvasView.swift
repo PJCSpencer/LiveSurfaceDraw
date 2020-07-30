@@ -9,6 +9,17 @@
 import SwiftUI
 
 
+protocol ModifierTool
+{
+    // init(_ binding: Binding<PJCLiveSurfaceItem?>)
+    
+    // @Binding var binding: PJCLiveSurfaceItem?
+    
+    init?(_ item: PJCLiveSurfaceItem?)
+    
+    func body(/*to selection: PJCLiveSurfaceItem?*/) -> AnyView
+}
+
 struct PJCCanvasView: View
 {
     // MARK: - Property(s)
@@ -21,11 +32,13 @@ struct PJCCanvasView: View
             .onEnded { action in
                  
                 let results = self.project.items.filter({ $0.path($0).contains(action.location) })
-                self.selection = results.sorted(by: { $0.index > $1.index }).first
+                let selection = results.sorted(by: { $0.index > $1.index }).first
+                
+                self.modifier = TransformModifier(selection)
         }
     }
     
-    @State private(set) var selection: PJCLiveSurfaceItem?
+    @State private(set) var modifier: ModifierTool?
     
     
     // MARK: - Implementing a Custom View
@@ -39,8 +52,7 @@ struct PJCCanvasView: View
             ForEach(self.project.items)
             { (item) in PJCCanvasView.body(item) }
             
-            // TODO:Discover how to support injecting and optional 'modifier' view protocol ...
-            PJCTransformView(item: self.$selection)
+            self.modifier?.body()
         }
         .gesture(self.gesture)
         .drawingGroup()

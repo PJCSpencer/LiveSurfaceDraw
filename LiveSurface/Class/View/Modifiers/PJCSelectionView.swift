@@ -9,34 +9,106 @@
 import SwiftUI
 
 
-enum PJCSelectionViewAnchorPosition
+enum PJCSelectionControlPointShape
+{
+    case circle
+    case square
+}
+
+enum PJCSelectionControlPointPosition
 {
     case topLeft, topMiddle, topRight
     case middelLeft, middleRight
     case bottomLeft, bottomMiddle, bottomRight
 }
 
-struct PJCSelectionViewAnchor: View, Identifiable
+struct PJCSelectionControlPoint: View, Identifiable
 {
-    // MARK: - Constant(s)
-    
-    static let anchorRadius: CGFloat = 12
-    
-    
-    // MARK: - Property(s)
-    
     var id = UUID()
     
+    let shape: PJCSelectionControlPointShape
     
-    // MARK: - Implementing a Custom View
+    let position: PJCSelectionControlPointPosition
     
     var body: some View
     {
-        Circle()
-            .fill(Color.blue)
-            .frame(width: PJCSelectionViewAnchor.anchorRadius,
-                   height: PJCSelectionViewAnchor.anchorRadius,
-                   alignment: .center)
+        Text("")
+    }
+}
+
+struct PJCSelectionControl: View
+{
+    let controlPoints: [PJCSelectionControlPoint] = []
+    
+    var body: some View
+    {
+        Text("")
+    }
+}
+
+struct PJCSelectionModifier: ViewModifier
+{
+    var frame: CGRect
+    
+    func body(content: Content) -> some View
+    {
+        let lineWidth: CGFloat = 1.5
+        let radius: CGFloat = 4
+        let size = CGSize(width: radius * 2,
+                          height: radius * 2)
+        
+        let cornerRadius: CGFloat = radius * 2
+        let wideCornerRadius: CGFloat = cornerRadius * 2
+        let _ = [0,
+                    cornerRadius,
+                    frame.width - wideCornerRadius,
+                    wideCornerRadius,
+                    frame.height - wideCornerRadius,
+                    wideCornerRadius,
+                    frame.width - wideCornerRadius,
+                    cornerRadius]
+        
+        return ZStack
+        {
+            Path { path in path.addRect(frame) }.stroke(Color.blue,
+                                                        style: StrokeStyle(lineWidth: 1, dash: [5, 3]))
+            
+            Path { path in path.addEllipse(in: CGRect(origin: CGPoint(x: frame.origin.x - radius,
+                                                                      y: frame.origin.y - radius),
+                                                      size: size)) }
+                .filled(Color.white,
+                        strokeStyle: StrokeStyle(lineWidth: lineWidth),
+                        strokeColor: Color.blue)
+            
+            Path { path in path.addEllipse(in: CGRect(origin: CGPoint(x: frame.origin.x + frame.width - radius,
+                                                                      y: frame.origin.y - radius),
+                                                      size: size)) }
+                .filled(Color.white,
+                        strokeStyle: StrokeStyle(lineWidth: lineWidth),
+                        strokeColor: Color.blue)
+            
+            Path { path in path.addEllipse(in: CGRect(origin: CGPoint(x: frame.origin.x - radius,
+                                                                      y: frame.origin.y + frame.height - radius),
+                                                      size: size)) }
+                .filled(Color.white,
+                        strokeStyle: StrokeStyle(lineWidth: lineWidth),
+                        strokeColor: Color.blue)
+            
+            Path { path in path.addEllipse(in: CGRect(origin: CGPoint(x: frame.origin.x + frame.width - radius,
+                                                                      y: frame.origin.y + frame.height - radius),
+                                                      size: size)) }
+                .filled(Color.white,
+                        strokeStyle: StrokeStyle(lineWidth: lineWidth),
+                        strokeColor: Color.blue)
+        }
+    }
+}
+
+extension View
+{
+    func selected(_ frame: CGRect) -> some View
+    {
+        ModifiedContent(content: self, modifier: PJCSelectionModifier(frame: frame))
     }
 }
 

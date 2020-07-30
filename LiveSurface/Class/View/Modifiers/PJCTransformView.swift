@@ -31,7 +31,9 @@ struct PJCTransformView: View
     
     var body: some View
     {
-        ZStack()
+        Rectangle().selected(self.item?.geometry.rect ?? .zero)
+        
+        /*ZStack()
         {
             Rectangle()
                 .offset(self.item?.geometry.origin ?? .zero)
@@ -45,7 +47,7 @@ struct PJCTransformView: View
                 .gesture(self.gesture)
                 
              // TODO:Support anchors ...
-        }
+        }*/
     }
     
     

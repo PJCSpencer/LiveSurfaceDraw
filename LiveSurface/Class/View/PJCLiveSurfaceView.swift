@@ -21,6 +21,8 @@ struct PJCLiveSurfaceView: View
     var body: some View
     {
         PJCCanvasView(project: self.project)
+        
+        // self.modifier?.apply(to: self.selection)
     }
 }
 
