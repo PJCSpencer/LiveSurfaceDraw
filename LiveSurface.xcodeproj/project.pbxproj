@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C202AF9224D2159A0024B628 /* SwiftUI+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C202AF9124D2159A0024B628 /* SwiftUI+Additions.swift */; };
+		C202AF9424D2DD0E0024B628 /* UIKit+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C202AF9324D2DD0E0024B628 /* UIKit+Additions.swift */; };
 		C29B1BB924D02ED50023DEE4 /* PJCCanvasView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B1BB824D02ED50023DEE4 /* PJCCanvasView+Additions.swift */; };
 		C29B1BBB24D043090023DEE4 /* PJCSimpleShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B1BBA24D043090023DEE4 /* PJCSimpleShapes.swift */; };
 		C29B1BBD24D046E50023DEE4 /* PJCTransformViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B1BBC24D046E50023DEE4 /* PJCTransformViewController.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		C202AF9124D2159A0024B628 /* SwiftUI+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+Additions.swift"; sourceTree = "<group>"; };
+		C202AF9324D2DD0E0024B628 /* UIKit+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Additions.swift"; sourceTree = "<group>"; };
 		C29B1BB824D02ED50023DEE4 /* PJCCanvasView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PJCCanvasView+Additions.swift"; sourceTree = "<group>"; };
 		C29B1BBA24D043090023DEE4 /* PJCSimpleShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCSimpleShapes.swift; sourceTree = "<group>"; };
 		C29B1BBC24D046E50023DEE4 /* PJCTransformViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCTransformViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				C202AF9124D2159A0024B628 /* SwiftUI+Additions.swift */,
+				C202AF9324D2DD0E0024B628 /* UIKit+Additions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C202AF9424D2DD0E0024B628 /* UIKit+Additions.swift in Sources */,
 				C2D6826D24D01F66000E4E79 /* PJCLayersView.swift in Sources */,
 				C29B1BC024D047140023DEE4 /* PJCTransformView.swift in Sources */,
 				C2D6826B24D01F55000E4E79 /* PJCCanvasView.swift in Sources */,

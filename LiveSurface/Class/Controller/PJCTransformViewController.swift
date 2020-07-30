@@ -9,15 +9,7 @@
 import SwiftUI
 
 
-/*class WarpModifier: ModifierTool
-{
-    func apply(to selection: PJCLiveSurfaceItem?) -> AnyView
-    {
-        return Text("warp").asAnyView()
-    }
-}*/
-
-final class TransformModifier: ModifierTool
+final class TransformModifier: PJCModifierProvider
 {
     fileprivate var item: PJCLiveSurfaceItem
     

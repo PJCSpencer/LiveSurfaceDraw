@@ -9,7 +9,7 @@
 import SwiftUI
 
 
-protocol ModifierTool
+protocol PJCModifierProvider
 {
     // init(_ binding: Binding<PJCLiveSurfaceItem?>)
     
@@ -38,7 +38,7 @@ struct PJCCanvasView: View
         }
     }
     
-    @State private(set) var modifier: ModifierTool?
+    @State private(set) var modifier: PJCModifierProvider?
     
     
     // MARK: - Implementing a Custom View
