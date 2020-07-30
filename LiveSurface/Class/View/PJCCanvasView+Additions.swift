@@ -13,7 +13,7 @@ extension PJCCanvasView
 {
     static func body(_ item: PJCLiveSurfaceItem) -> some View
     {
-        item.path(item).fill(Color(white: 0.8)) // TODO:Extend to support styling ...
+        item.path(item).fill(Color(white: 0.9)) // TODO:Extend to support styling ...
     }
 }
 

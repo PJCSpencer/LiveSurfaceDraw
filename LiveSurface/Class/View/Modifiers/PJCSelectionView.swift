@@ -14,6 +14,7 @@ protocol PJCSelectionControlPointShapeProvider
     var shape: PJCSelectionControlPointShape { get }
 }
 
+// MARK: - PJCSelectionControlPointShape
 enum PJCSelectionControlPointShape
 {
     case circle
@@ -23,11 +24,10 @@ enum PJCSelectionControlPointShape
 extension PJCSelectionControlPointShape
 {
     func path(_ rect: CGRect) -> Path
-    {
-        self == .circle ? Path(ellipseIn: rect) : Path(rect)
-    }
+    { self == .circle ? Path(ellipseIn: rect) : Path(rect) }
 }
 
+// MARK: - PJCSelectionControlPointPosition
 enum PJCSelectionControlPointPosition: CGPoint, CaseIterable
 {
     case topLeft = "{0, 0}", topMiddle = "{0.5, 0}", topRight = "{1, 0}"
@@ -62,42 +62,55 @@ struct PJCSelectionControlPoint: View, Identifiable
     
     var id = UUID()
     
-    let frame: CGRect
-    
     let shape: PJCSelectionControlPointShape
     
     let position: PJCSelectionControlPointPosition
     
+    let controlFrame: CGRect
     
-    // MARK: -
-    
-    var body: some View
+    var relativeFrame: CGRect
     {
         let pt = self.position.rawValue
-        let x = frame.origin.x + (frame.width * pt.x) - PJCSelectionControlPoint.radius
-        let y = frame.origin.y + (frame.height * pt.y) - PJCSelectionControlPoint.radius
-        // print("\(self.position), \(self.shape), \(pt), \(x), \(y)")
+        let x = self.controlFrame.origin.x + (self.controlFrame.width * pt.x) - PJCSelectionControlPoint.radius
+        let y = self.controlFrame.origin.y + (self.controlFrame.height * pt.y) - PJCSelectionControlPoint.radius
         
         let size = CGSize(width: PJCSelectionControlPoint.radius * 2,
                           height: PJCSelectionControlPoint.radius * 2)
-        let rect = CGRect(origin: CGPoint(x: x, y: y),
-                          size: size)
         
-        return self.shape.path(rect).stroke(Color.blue,
-                                            lineWidth: PJCSelectionControlPoint.lineWidth)
+        return CGRect(origin: CGPoint(x: x, y: y),
+                          size: size)
+    }
+    
+    
+    // MARK: - Implementing a Custom View
+    
+    var body: some View
+    {
+        self.shape.path(self.relativeFrame).stroke(Color.blue,
+                                                   lineWidth: PJCSelectionControlPoint.lineWidth)
     }
 }
 
 struct PJCSelectionControl: View
 {
+    // MARK: - Property(s)
+    
     let frame: CGRect
+    
+    
+    // MARK: - Return the Control Poinrs
     
     func controlPoints(_ frame: CGRect) -> [PJCSelectionControlPoint]
     {
         return PJCSelectionControlPointPosition.allCases
-            .map({ PJCSelectionControlPoint(frame: frame, shape: $0.shape, position: $0) })
+            .map({ PJCSelectionControlPoint(shape: $0.shape,
+                                            position: $0,
+                                            controlFrame: frame) })
     }
-     
+    
+    
+    // MARK: - Implementing a Custom View
+    
     var body: some View
     {
         ForEach(self.controlPoints(self.frame))
@@ -107,81 +120,38 @@ struct PJCSelectionControl: View
 
 struct PJCSelectionModifier: ViewModifier
 {
+    // MARK: - Property(s)
+    
     var frame: CGRect
+    
+    
+    // MARK: - Implementing a Custom View
     
     func body(content: Content) -> some View
     {
-        // let lineWidth: CGFloat = 1.5
-        let radius: CGFloat = 4
-        /*let size = CGSize(width: radius * 2,
-                          height: radius * 2)*/
-        
-        let cornerRadius: CGFloat = radius * 2
+        let cornerRadius: CGFloat = PJCSelectionControlPoint.radius * 2
         let wideCornerRadius: CGFloat = cornerRadius * 2
-        let dash = [(frame.width * 0.5) - wideCornerRadius,
-                    wideCornerRadius,
-                    (frame.width * 0.5) - wideCornerRadius,
-                    wideCornerRadius,
-                    (frame.height * 0.5) - wideCornerRadius,
-                    wideCornerRadius,
-                    (frame.height * 0.5) - wideCornerRadius,
-                    wideCornerRadius,
-                    (frame.width * 0.5) - wideCornerRadius,
-                    wideCornerRadius,
-                    (frame.width * 0.5) - wideCornerRadius,
-                    wideCornerRadius,
-                    (frame.height * 0.5) - wideCornerRadius,
-                    wideCornerRadius,
-                    (frame.height * 0.5) - wideCornerRadius]
+        let sides: [CGFloat] =
+        [
+            self.frame.width,
+            self.frame.height,
+            self.frame.width,
+            self.frame.height
+        ]
+        
+        // TODO:Support multiply custom operator on array ...
+        let dash = (sides + sides)
+            .map({ [$0 * 0.5 - wideCornerRadius] })
+            .joined(separator: [wideCornerRadius])
         
         return ZStack
         {
             Path { path in path.addRect(frame) }.stroke(Color.blue,
-                                                        style: StrokeStyle(lineWidth: 1, dash: dash, dashPhase: -cornerRadius))
+                                                        style: StrokeStyle(lineWidth: 1,
+                                                                           dash: Array(dash),
+                                                                           dashPhase: -cornerRadius))
             
             PJCSelectionControl(frame: frame)
-            
-            // Corners.
-            /*Path { path in path.addEllipse(in: CGRect(origin: CGPoint(x: frame.origin.x - radius,
-                                                                      y: frame.origin.y - radius),
-                                                      size: size)) }
-                .stroke(Color.blue, lineWidth: lineWidth)
-            
-            Path { path in path.addEllipse(in: CGRect(origin: CGPoint(x: frame.origin.x + frame.width - radius,
-                                                                      y: frame.origin.y - radius),
-                                                      size: size)) }
-                .stroke(Color.blue, lineWidth: lineWidth)
-            
-            Path { path in path.addEllipse(in: CGRect(origin: CGPoint(x: frame.origin.x - radius,
-                                                                      y: frame.origin.y + frame.height - radius),
-                                                      size: size)) }
-                .stroke(Color.blue, lineWidth: lineWidth)
-            
-            Path { path in path.addEllipse(in: CGRect(origin: CGPoint(x: frame.origin.x + frame.width - radius,
-                                                                      y: frame.origin.y + frame.height - radius),
-                                                      size: size)) }
-                .stroke(Color.blue, lineWidth: lineWidth)
-            
-            // Sides.
-            Path { path in path.addRect(CGRect(origin: CGPoint(x: frame.origin.x + (frame.width * 0.5) - radius,
-                                                               y: frame.origin.y - radius),
-                                                  size: size)) }
-                .stroke(Color.blue, lineWidth: lineWidth)
-            
-            Path { path in path.addRect(CGRect(origin: CGPoint(x: frame.origin.x + frame.width - radius,
-                                                               y: frame.origin.y + (frame.height * 0.5) - radius),
-                                               size: size)) }
-                .stroke(Color.blue, lineWidth: lineWidth)
-            
-            Path { path in path.addRect(CGRect(origin: CGPoint(x: frame.origin.x + (frame.width * 0.5) - radius,
-                                                               y: frame.origin.y + frame.height - radius),
-                                               size: size)) }
-                .stroke(Color.blue, lineWidth: lineWidth)
-            
-            Path { path in path.addRect(CGRect(origin: CGPoint(x: frame.origin.x - radius,
-                                                               y: frame.origin.y + (frame.height * 0.5) - radius),
-                                               size: size)) }
-                .stroke(Color.blue, lineWidth: lineWidth)*/
         }
     }
 }
@@ -190,7 +160,8 @@ extension View
 {
     func selected(_ frame: CGRect) -> some View
     {
-        ModifiedContent(content: self, modifier: PJCSelectionModifier(frame: frame))
+        ModifiedContent(content: self,
+                        modifier: PJCSelectionModifier(frame: frame))
     }
 }
 

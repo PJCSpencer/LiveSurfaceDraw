@@ -40,6 +40,8 @@ struct PJCCanvasView: View
     
     @State private(set) var modifier: PJCModifierProvider?
     
+    @State var canvasColor: Color = .white
+    
     
     // MARK: - Implementing a Custom View
     
@@ -47,7 +49,7 @@ struct PJCCanvasView: View
     {
         ZStack(alignment: .topLeading)
         {
-            Color(red: 1, green: 1, blue: 1).edgesIgnoringSafeArea(.all)
+            self.canvasColor.edgesIgnoringSafeArea(.all)
             
             ForEach(self.project.items)
             { (item) in PJCCanvasView.body(item) }

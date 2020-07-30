@@ -13,6 +13,13 @@ final class TransformModifier: PJCModifierProvider
 {
     fileprivate var item: PJCLiveSurfaceItem
     
+    fileprivate var gesture: some Gesture // TODO:Needs to be refactored to support gesture sequencing ...
+    {
+        DragGesture()
+            .onChanged { value in }
+            .onEnded { _ in }
+    }
+    
     init?(_ item: PJCLiveSurfaceItem?)
     {
         guard let item = item else
