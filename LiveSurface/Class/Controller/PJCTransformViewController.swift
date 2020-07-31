@@ -9,7 +9,7 @@
 import SwiftUI
 
 
-final class TransformModifier: PJCModifierProvider
+final class PJCTransformModifier: PJCModifierProvider
 {
     fileprivate var item: PJCLiveSurfaceItem
     

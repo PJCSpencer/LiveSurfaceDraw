@@ -20,9 +20,14 @@ struct PJCLiveSurfaceView: View
     
     var body: some View
     {
-        PJCCanvasView(project: self.project)
-        
-        // self.modifier?.apply(to: self.selection)
+        NavigationView
+        {
+            PJCLayersView(project: self.project)
+            PJCCanvasView(project: self.project)
+            
+            // self.modifier?.apply(to: self.selection)
+        }
+        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 50))
     }
 }
 

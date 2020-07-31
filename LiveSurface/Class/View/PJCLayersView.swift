@@ -11,11 +11,21 @@ import SwiftUI
 
 struct PJCLayersView: View
 {
+    // MARK: - Property(s)
+    
+    @ObservedObject private(set) var project: PJCLiveSurfaceProject
+    
+    
     // MARK: - Implementing a Custom View
     
     var body: some View
     {
-        Text("PJCLayersView")
+        List 
+        {
+            ForEach(self.project.items)
+            { (item) in Text(item.name).frame(height: 70) }
+        }
+        .navigationBarTitle("Layers", displayMode: .inline)
     }
 }
 
@@ -23,7 +33,7 @@ struct PJCLayersView_Previews: PreviewProvider
 {
     static var previews: some View
     {
-        PJCLayersView()
+        PJCLayersView(project: PJCLiveSurfaceProject())
     }
 }
 

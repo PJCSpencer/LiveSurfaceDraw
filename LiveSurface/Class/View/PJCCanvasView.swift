@@ -26,15 +26,33 @@ struct PJCCanvasView: View
     
     @ObservedObject private(set) var project: PJCLiveSurfaceProject
     
+    var tap: some Gesture
+    {
+        DragGesture(minimumDistance: 0).onChanged { (value) in
+        
+            let results = self.project.items.filter({ $0.path($0).contains(value.location) })
+            guard let selection = results.sorted(by: { $0.index > $1.index }).first else
+            {
+                self.modifier = nil
+                return
+            }
+            self.modifier = PJCTransformModifier(selection)
+        }
+        .onEnded { (value) in
+        
+            
+        }
+    }
+    
     fileprivate var gesture: some Gesture
     {
-        DragGesture(minimumDistance: 0) // TODO:Researching using UIViewRepresentable as a background ...
+        DragGesture(minimumDistance: 0) // TODO:Researching using UIViewRepresentable as a background, maybe with grid, etc ...
             .onEnded { action in
                  
                 let results = self.project.items.filter({ $0.path($0).contains(action.location) })
                 let selection = results.sorted(by: { $0.index > $1.index }).first
                 
-                self.modifier = TransformModifier(selection)
+                self.modifier = PJCTransformModifier(selection) // TODO:Support tool type identifier, maybe function returning enum ...
         }
     }
     

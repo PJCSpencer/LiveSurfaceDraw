@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C202AF9224D2159A0024B628 /* SwiftUI+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C202AF9124D2159A0024B628 /* SwiftUI+Additions.swift */; };
 		C202AF9424D2DD0E0024B628 /* UIKit+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C202AF9324D2DD0E0024B628 /* UIKit+Additions.swift */; };
+		C225A1CB24D33DC20008A7E7 /* Foundation+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225A1CA24D33DC20008A7E7 /* Foundation+Additions.swift */; };
+		C225A1CD24D36B320008A7E7 /* PJCLayersView+additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225A1CC24D36B320008A7E7 /* PJCLayersView+additions.swift */; };
 		C29B1BB924D02ED50023DEE4 /* PJCCanvasView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B1BB824D02ED50023DEE4 /* PJCCanvasView+Additions.swift */; };
 		C29B1BBB24D043090023DEE4 /* PJCSimpleShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B1BBA24D043090023DEE4 /* PJCSimpleShapes.swift */; };
 		C29B1BBD24D046E50023DEE4 /* PJCTransformViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B1BBC24D046E50023DEE4 /* PJCTransformViewController.swift */; };
@@ -31,6 +33,8 @@
 /* Begin PBXFileReference section */
 		C202AF9124D2159A0024B628 /* SwiftUI+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+Additions.swift"; sourceTree = "<group>"; };
 		C202AF9324D2DD0E0024B628 /* UIKit+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Additions.swift"; sourceTree = "<group>"; };
+		C225A1CA24D33DC20008A7E7 /* Foundation+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Additions.swift"; sourceTree = "<group>"; };
+		C225A1CC24D36B320008A7E7 /* PJCLayersView+additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PJCLayersView+additions.swift"; sourceTree = "<group>"; };
 		C29B1BB824D02ED50023DEE4 /* PJCCanvasView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PJCCanvasView+Additions.swift"; sourceTree = "<group>"; };
 		C29B1BBA24D043090023DEE4 /* PJCSimpleShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCSimpleShapes.swift; sourceTree = "<group>"; };
 		C29B1BBC24D046E50023DEE4 /* PJCTransformViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCTransformViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +72,7 @@
 			children = (
 				C202AF9124D2159A0024B628 /* SwiftUI+Additions.swift */,
 				C202AF9324D2DD0E0024B628 /* UIKit+Additions.swift */,
+				C225A1CA24D33DC20008A7E7 /* Foundation+Additions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 				C2D6826A24D01F55000E4E79 /* PJCCanvasView.swift */,
 				C29B1BB824D02ED50023DEE4 /* PJCCanvasView+Additions.swift */,
 				C2D6826C24D01F66000E4E79 /* PJCLayersView.swift */,
+				C225A1CC24D36B320008A7E7 /* PJCLayersView+additions.swift */,
 				C29B1BBE24D046FD0023DEE4 /* Modifiers */,
 			);
 			path = View;
@@ -244,6 +250,8 @@
 				C2D6826F24D023D1000E4E79 /* PJCLiveSurfaceItem.swift in Sources */,
 				C29B1BC224D05D740023DEE4 /* PJCLiveSurfaceProject.swift in Sources */,
 				C2D6825424D01A9E000E4E79 /* PJCSceneDelegate.swift in Sources */,
+				C225A1CB24D33DC20008A7E7 /* Foundation+Additions.swift in Sources */,
+				C225A1CD24D36B320008A7E7 /* PJCLayersView+additions.swift in Sources */,
 				C29B1BC424D087DC0023DEE4 /* PJCSelectionView.swift in Sources */,
 				C2D6827124D02BF2000E4E79 /* PJCGeometry.swift in Sources */,
 				C2D6826924D01C0B000E4E79 /* PJCLiveSurfaceViewController.swift in Sources */,

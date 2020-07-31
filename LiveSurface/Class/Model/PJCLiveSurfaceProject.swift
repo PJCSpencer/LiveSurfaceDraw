@@ -9,13 +9,24 @@
 import Foundation
 
 
+enum PJCModifierToolset
+{
+    case none
+    case select
+    case transform
+}
+
 class PJCLiveSurfaceProject: ObservableObject
 {
     // MARK: - Property(s)
     
     @Published var title: String = "Untitled Project"
     
-    @Published private(set) var items: [PJCLiveSurfaceItem] = PJCLiveSurfaceItem.mocked
+    @Published private(set) var items: [PJCLiveSurfaceItem] = PJCLiveSurfaceItem.mocked // TODO:Support layer group(s) ...
+    
+    @Published var tool: PJCModifierToolset = .none
+    
+    @Published private(set) var modifier: PJCModifierProvider?
     
     
     // MARK: - Initialisation

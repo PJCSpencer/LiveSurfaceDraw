@@ -32,22 +32,6 @@ struct PJCTransformView: View
     var body: some View
     {
         Rectangle().selected(self.item?.geometry.rect ?? .zero)
-        
-        /*ZStack()
-        {
-            Rectangle()
-                .offset(self.item?.geometry.origin ?? .zero)
-                .stroke(Color.blue,
-                        style: StrokeStyle(lineWidth: 1.5,
-                                           dash: self.dash,
-                                           dashPhase: self.phase))
-                .frame(width: self.item?.geometry.size.width ?? 0,
-                       height: self.item?.geometry.size.height ?? 0,
-                       alignment: self.item?.geometry.alignment ?? .center)
-                .gesture(self.gesture)
-                
-             // TODO:Support anchors ...
-        }*/
     }
     
     
