@@ -9,23 +9,6 @@
 import SwiftUI
 
 
-struct PJCLayerPreview: View
-{
-    @State private(set) var item: PJCLiveSurfaceItem
-    
-    
-    // MARK: - Implementing a Custom View
-    
-    var body: some View
-    {
-        HStack
-        {
-            Text(self.item.name)
-            
-        }.background(Color(white: 0.95))
-    }
-}
-
 struct PJCLayersView: View
 {
     // MARK: - Property(s)
@@ -52,7 +35,7 @@ struct PJCLayersView: View
                         self.selectedItem = item
                     }
                     .padding()
-                    .frame(width: geometry.size.width * 0.9,
+                    .frame(width: geometry.size.width,
                            height: 70)
                 }
             }

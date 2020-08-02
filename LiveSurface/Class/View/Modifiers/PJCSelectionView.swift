@@ -107,7 +107,10 @@ struct PJCControlPoint: View, Identifiable
         ZStack
         {
             self.shape.path(self.selectionFrame)
-                .fill(Color(red: 0, green: 0, blue: 1, opacity: PJCHiddenButResponsiveOpacity))
+                .fill(Color(red: 0,
+                            green: 0,
+                            blue: 1,
+                            opacity: PJCHiddenButResponsiveOpacity))
             
             self.shape.path(self.relativeFrame)
                 .stroke(Color.blue,

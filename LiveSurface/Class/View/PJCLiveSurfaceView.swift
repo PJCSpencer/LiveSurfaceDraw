@@ -15,8 +15,6 @@ struct PJCLiveSurfaceView: View
     
     private(set) var project: PJCLiveSurfaceProject = PJCLiveSurfaceProject()
     
-    @State private(set) var modifier: PJCModifierProvider?
-    
     
     // MARK: - Implementing a Custom View
     
@@ -27,7 +25,7 @@ struct PJCLiveSurfaceView: View
         /*NavigationView
         {
             PJCLayersView(project: self.project)
-            PJCCanvasView(project: self.project) // PJCCanvasView(project: self.project, modifier: self.modifier)
+            PJCCanvasView(project: self.project)
         }
         .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))*/
     }

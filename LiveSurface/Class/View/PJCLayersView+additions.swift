@@ -9,8 +9,5 @@
 import Foundation
 
 
-class PJCLayerGroup
-{
-    
-}
+class PJCLayerGroup { /* TODO: */ }
 
