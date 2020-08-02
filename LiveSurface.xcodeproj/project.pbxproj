@@ -13,7 +13,7 @@
 		C225A1CD24D36B320008A7E7 /* PJCLayersView+additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225A1CC24D36B320008A7E7 /* PJCLayersView+additions.swift */; };
 		C29B1BB924D02ED50023DEE4 /* PJCCanvasView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B1BB824D02ED50023DEE4 /* PJCCanvasView+Additions.swift */; };
 		C29B1BBB24D043090023DEE4 /* PJCSimpleShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B1BBA24D043090023DEE4 /* PJCSimpleShapes.swift */; };
-		C29B1BBD24D046E50023DEE4 /* PJCTransformViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B1BBC24D046E50023DEE4 /* PJCTransformViewController.swift */; };
+		C29B1BBD24D046E50023DEE4 /* PJCTransformController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B1BBC24D046E50023DEE4 /* PJCTransformController.swift */; };
 		C29B1BC024D047140023DEE4 /* PJCTransformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B1BBF24D047140023DEE4 /* PJCTransformView.swift */; };
 		C29B1BC224D05D740023DEE4 /* PJCLiveSurfaceProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B1BC124D05D740023DEE4 /* PJCLiveSurfaceProject.swift */; };
 		C29B1BC424D087DC0023DEE4 /* PJCSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B1BC324D087DC0023DEE4 /* PJCSelectionView.swift */; };
@@ -28,6 +28,7 @@
 		C2D6826D24D01F66000E4E79 /* PJCLayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6826C24D01F66000E4E79 /* PJCLayersView.swift */; };
 		C2D6826F24D023D1000E4E79 /* PJCLiveSurfaceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6826E24D023D1000E4E79 /* PJCLiveSurfaceItem.swift */; };
 		C2D6827124D02BF2000E4E79 /* PJCGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6827024D02BF2000E4E79 /* PJCGeometry.swift */; };
+		C2FB594224D6B24B00B501F8 /* PJCTransformController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB594124D6B24B00B501F8 /* PJCTransformController+Additions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +38,7 @@
 		C225A1CC24D36B320008A7E7 /* PJCLayersView+additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PJCLayersView+additions.swift"; sourceTree = "<group>"; };
 		C29B1BB824D02ED50023DEE4 /* PJCCanvasView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PJCCanvasView+Additions.swift"; sourceTree = "<group>"; };
 		C29B1BBA24D043090023DEE4 /* PJCSimpleShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCSimpleShapes.swift; sourceTree = "<group>"; };
-		C29B1BBC24D046E50023DEE4 /* PJCTransformViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCTransformViewController.swift; sourceTree = "<group>"; };
+		C29B1BBC24D046E50023DEE4 /* PJCTransformController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCTransformController.swift; sourceTree = "<group>"; };
 		C29B1BBF24D047140023DEE4 /* PJCTransformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCTransformView.swift; sourceTree = "<group>"; };
 		C29B1BC124D05D740023DEE4 /* PJCLiveSurfaceProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCLiveSurfaceProject.swift; sourceTree = "<group>"; };
 		C29B1BC324D087DC0023DEE4 /* PJCSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCSelectionView.swift; sourceTree = "<group>"; };
@@ -54,6 +55,7 @@
 		C2D6826C24D01F66000E4E79 /* PJCLayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCLayersView.swift; sourceTree = "<group>"; };
 		C2D6826E24D023D1000E4E79 /* PJCLiveSurfaceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCLiveSurfaceItem.swift; sourceTree = "<group>"; };
 		C2D6827024D02BF2000E4E79 /* PJCGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCGeometry.swift; sourceTree = "<group>"; };
+		C2FB594124D6B24B00B501F8 /* PJCTransformController+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PJCTransformController+Additions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				C2D6826824D01C0B000E4E79 /* PJCLiveSurfaceViewController.swift */,
-				C29B1BBC24D046E50023DEE4 /* PJCTransformViewController.swift */,
+				C29B1BBC24D046E50023DEE4 /* PJCTransformController.swift */,
+				C2FB594124D6B24B00B501F8 /* PJCTransformController+Additions.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -244,12 +247,13 @@
 				C29B1BC024D047140023DEE4 /* PJCTransformView.swift in Sources */,
 				C2D6826B24D01F55000E4E79 /* PJCCanvasView.swift in Sources */,
 				C202AF9224D2159A0024B628 /* SwiftUI+Additions.swift in Sources */,
-				C29B1BBD24D046E50023DEE4 /* PJCTransformViewController.swift in Sources */,
+				C29B1BBD24D046E50023DEE4 /* PJCTransformController.swift in Sources */,
 				C2D6825224D01A9E000E4E79 /* PJCAppDelegate.swift in Sources */,
 				C29B1BBB24D043090023DEE4 /* PJCSimpleShapes.swift in Sources */,
 				C2D6826F24D023D1000E4E79 /* PJCLiveSurfaceItem.swift in Sources */,
 				C29B1BC224D05D740023DEE4 /* PJCLiveSurfaceProject.swift in Sources */,
 				C2D6825424D01A9E000E4E79 /* PJCSceneDelegate.swift in Sources */,
+				C2FB594224D6B24B00B501F8 /* PJCTransformController+Additions.swift in Sources */,
 				C225A1CB24D33DC20008A7E7 /* Foundation+Additions.swift in Sources */,
 				C225A1CD24D36B320008A7E7 /* PJCLayersView+additions.swift in Sources */,
 				C29B1BC424D087DC0023DEE4 /* PJCSelectionView.swift in Sources */,
@@ -404,7 +408,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spencers-dm.LiveSurface";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -424,7 +428,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spencers-dm.LiveSurface";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

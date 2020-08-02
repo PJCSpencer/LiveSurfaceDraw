@@ -9,6 +9,17 @@
 import SwiftUI
 
 
+protocol PJCModifierProvider2
+{
+    // var project: PJCLiveSurfaceProject? { get }
+    
+    // init(_ project: PJCLiveSurfaceProject)
+    
+    // var cache: [?]
+    
+    func body() -> AnyView
+}
+
 protocol PJCModifierProvider
 {
     // init(_ binding: Binding<PJCLiveSurfaceItem?>)
@@ -25,39 +36,7 @@ struct PJCCanvasView: View
     // MARK: - Property(s)
     
     @ObservedObject private(set) var project: PJCLiveSurfaceProject
-    
-    var tap: some Gesture
-    {
-        DragGesture(minimumDistance: 0).onChanged { (value) in
-        
-            let results = self.project.items.filter({ $0.path($0).contains(value.location) })
-            guard let selection = results.sorted(by: { $0.index > $1.index }).first else
-            {
-                self.modifier = nil
-                return
-            }
-            self.modifier = PJCTransformModifier(selection)
-        }
-        .onEnded { (value) in
-        
-            
-        }
-    }
-    
-    fileprivate var gesture: some Gesture
-    {
-        DragGesture(minimumDistance: 0) // TODO:Researching using UIViewRepresentable as a background, maybe with grid, etc ...
-            .onEnded { action in
-                 
-                let results = self.project.items.filter({ $0.path($0).contains(action.location) })
-                let selection = results.sorted(by: { $0.index > $1.index }).first
-                
-                self.modifier = PJCTransformModifier(selection) // TODO:Support tool type identifier, maybe function returning enum ...
-        }
-    }
-    
-    @State private(set) var modifier: PJCModifierProvider?
-    
+
     @State var canvasColor: Color = .white
     
     
@@ -65,16 +44,15 @@ struct PJCCanvasView: View
     
     var body: some View
     {
-        ZStack(alignment: .topLeading)
+        return ZStack(alignment: .topLeading)
         {
             self.canvasColor.edgesIgnoringSafeArea(.all)
             
             ForEach(self.project.items)
             { (item) in PJCCanvasView.body(item) }
             
-            self.modifier?.body()
+            Toolset.tool(self.project)
         }
-        .gesture(self.gesture)
         .drawingGroup()
     }
 }

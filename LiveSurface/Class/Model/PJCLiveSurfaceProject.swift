@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 
 enum PJCModifierToolset
@@ -16,7 +17,7 @@ enum PJCModifierToolset
     case transform
 }
 
-class PJCLiveSurfaceProject: ObservableObject
+class PJCLiveSurfaceProject: PJCDelegateClass, ObservableObject
 {
     // MARK: - Property(s)
     
@@ -24,15 +25,27 @@ class PJCLiveSurfaceProject: ObservableObject
     
     @Published private(set) var items: [PJCLiveSurfaceItem] = PJCLiveSurfaceItem.mocked // TODO:Support layer group(s) ...
     
-    @Published var tool: PJCModifierToolset = .none
+    @Published private(set) var modifier: PJCModifierProvider2?
     
-    @Published private(set) var modifier: PJCModifierProvider?
+    @Published var modtoolType: Int = 0
     
     
     // MARK: - Initialisation
     
     init()
     {
+        DispatchQueue.main.asyncAfter(deadline: .now() + Double(1))
+        {
+            /*let count: Int = Int.random(in: 0..<self.items.count)
+            
+            guard let _ = self.items[count] as PJCLiveSurfaceItem? else
+            { return }
+            
+            self.modifier = PJCTransformTool(item)*/
+            
+            self.modtoolType = 7
+        }
+        
         /*for i in 1...10
         {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(i))
@@ -41,6 +54,26 @@ class PJCLiveSurfaceProject: ObservableObject
                 self.items.append(element)
             }
         }*/
+    }
+}
+
+class Toolset
+{
+    static var availableToolsetTypes: [Int]
+    {
+        return [0, 7]
+    }
+    
+    static func tool(_ project: PJCLiveSurfaceProject) -> AnyView?
+    {
+        let count: Int = Int.random(in: 0..<project.items.count)
+        
+        if project.modtoolType == 7,
+            let item = project.items[count] as PJCLiveSurfaceItem?
+        {
+            return ModTool(fixedGeometry: item.geometry).asAnyView()
+        }
+        return nil
     }
 }
 

@@ -9,6 +9,8 @@
 import SwiftUI
 
 
+let PJCHiddenButResponsiveOpacity: Double = 0.1
+
 protocol PJCControlPointShapeProvider
 {
     var shape: PJCControlPointShape { get }
@@ -57,6 +59,8 @@ struct PJCControlPoint: View, Identifiable
     
     static let lineWidth: CGFloat = 1.5
     
+    static var hitTestingScale: CGFloat = 3.0
+    
     
     // MARK: - Property(s)
     
@@ -78,7 +82,21 @@ struct PJCControlPoint: View, Identifiable
                           height: PJCControlPoint.radius * 2)
         
         return CGRect(origin: CGPoint(x: x, y: y),
-                          size: size)
+                      size: size)
+    }
+    
+    var selectionFrame: CGRect
+    {
+        let radius: CGFloat = PJCControlPoint.radius * PJCControlPoint.hitTestingScale
+        let pt = self.position.rawValue
+        let x = self.controlFrame.origin.x + (self.controlFrame.width * pt.x) - radius
+        let y = self.controlFrame.origin.y + (self.controlFrame.height * pt.y) - radius
+        
+        let size = CGSize(width: radius * 2,
+                          height: radius * 2)
+        
+        return CGRect(origin: CGPoint(x: x, y: y),
+                      size: size)
     }
     
     
@@ -86,26 +104,33 @@ struct PJCControlPoint: View, Identifiable
     
     var body: some View
     {
-        self.shape.path(self.relativeFrame).stroke(Color.blue,
-                                                   lineWidth: PJCControlPoint.lineWidth)
+        ZStack
+        {
+            self.shape.path(self.selectionFrame)
+                .fill(Color(red: 0, green: 0, blue: 1, opacity: PJCHiddenButResponsiveOpacity))
+            
+            self.shape.path(self.relativeFrame)
+                .stroke(Color.blue,
+                        lineWidth: PJCControlPoint.lineWidth)
+        }
     }
 }
 
-struct PJCSelectionControl: View
+struct PJCSelectionView: View
 {
     // MARK: - Property(s)
     
-    let frame: CGRect
+    let rect: CGRect
     
     
-    // MARK: - Return the Control Poinrs
+    // MARK: - Returning the Control Points
     
-    func controlPoints(_ frame: CGRect) -> [PJCControlPoint]
+    func controlPoints() -> [PJCControlPoint]
     {
         return PJCControlPointPosition.allCases
             .map({ PJCControlPoint(shape: $0.shape,
                                             position: $0,
-                                            controlFrame: frame) })
+                                            controlFrame: self.rect) })
     }
     
     
@@ -113,8 +138,36 @@ struct PJCSelectionControl: View
     
     var body: some View
     {
-        ForEach(self.controlPoints(self.frame))
-        { (controlPoint) in controlPoint }
+        let cornerRadius: CGFloat = PJCControlPoint.radius * 2
+        let wideCornerRadius: CGFloat = cornerRadius * 2
+        let sides: [CGFloat] =
+        [
+            self.rect.width,
+            self.rect.height
+        ] * 4
+        
+        let dash = sides
+            .map({ [$0 * 0.5 - wideCornerRadius] })
+            .joined(separator: [wideCornerRadius])
+        
+        let scaledRect = self.rect.insetBy(dx: -wideCornerRadius,
+                                           dy: -wideCornerRadius)
+        
+        return ZStack
+        {
+            Path() { path in path.addRect(scaledRect) }
+                .foregroundColor(Color(red: 0, green: 0, blue: 1, opacity: PJCHiddenButResponsiveOpacity))
+            
+            Path() { path in path.addRect(self.rect) }
+                .stroke(Color.blue,
+                        style: StrokeStyle(lineWidth: 1,
+                                           dash: Array(dash),
+                                           dashPhase: -cornerRadius))
+                .allowsHitTesting(false)
+            
+            ForEach(self.controlPoints())
+            { (controlPoint) in controlPoint }.allowsHitTesting(false)
+        }
     }
 }
 
@@ -129,29 +182,7 @@ struct PJCSelectionModifier: ViewModifier
     
     func body(content: Content) -> some View
     {
-        let cornerRadius: CGFloat = PJCControlPoint.radius * 2
-        let wideCornerRadius: CGFloat = cornerRadius * 2
-        let sides: [CGFloat] =
-        [
-            self.frame.width,
-            self.frame.height,
-            self.frame.width,
-            self.frame.height
-        ] * 2
-        
-        let dash = sides
-            .map({ [$0 * 0.5 - wideCornerRadius] })
-            .joined(separator: [wideCornerRadius])
-        
-        return ZStack
-        {
-            Path { path in path.addRect(frame) }.stroke(Color.blue,
-                                                        style: StrokeStyle(lineWidth: 1,
-                                                                           dash: Array(dash),
-                                                                           dashPhase: -cornerRadius))
-            
-            PJCSelectionControl(frame: frame)
-        }
+        PJCSelectionView(rect: frame)
     }
 }
 

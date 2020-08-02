@@ -29,6 +29,12 @@ class PJCGeometry
         self.origin = origin
         self.size = size
     }
+    
+    init()
+    {
+        self.origin = .zero
+        self.size = .zero
+    }
 }
 
 extension PJCGeometry

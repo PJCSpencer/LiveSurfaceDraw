@@ -16,7 +16,7 @@ protocol PJCLiveSurfaceItemPathProvider
     static func path(_ item: PJCLiveSurfaceItem) -> Path
 }
 
-class PJCLiveSurfaceItem: Identifiable
+class PJCLiveSurfaceItem: PJCDelegateClass, Identifiable
 {
     // MARK: - Specifying the Identified Item
     
@@ -29,7 +29,7 @@ class PJCLiveSurfaceItem: Identifiable
     
     var name: String
     
-    let geometry: PJCGeometry
+    var geometry: PJCGeometry
     
     let path: PJCLiveSurfaceItemPathProviderHandler
     
@@ -57,18 +57,18 @@ extension PJCLiveSurfaceItem // TODO:Support protocol ...
     
     static func create(_ index: Int) -> PJCLiveSurfaceItem
     {
-        let radius: CGFloat = 100.0
-        let scaledRadius: CGFloat = radius * 0.5
-        let width = UIScreen.main.bounds.width - radius
-        let height = UIScreen.main.bounds.height - radius
-        let pt = CGPoint(x: CGFloat.random(in: scaledRadius..<width),
-                         y: CGFloat.random(in: scaledRadius..<height))
-        let size = CGSize(width: radius,
-                          height: radius)
+        let radius: CGFloat = 50.0
+        let scaledRadius: CGFloat = radius * 2
+        let width = (UIScreen.main.bounds.width * 0.75) - scaledRadius
+        let height = (UIScreen.main.bounds.height * 0.75) - scaledRadius
+        let pt = CGPoint(x: CGFloat.random(in: radius..<width),
+                         y: CGFloat.random(in: radius..<height))
+        let size = CGSize(width: scaledRadius,
+                          height: scaledRadius)
         
         let geometry = PJCGeometry(pt,
                                    size: size)
-
+        
         return PJCLiveSurfaceItem(index,
                                   name: "Untitled_\(index)",
                                   geometry: geometry,

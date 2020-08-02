@@ -17,6 +17,12 @@ class PJCAppDelegate: UIResponder, UIApplicationDelegate
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
     {
+        // UITableView.appearance().separatorStyle = .none
+        UITableView.appearance().separatorInset = UIEdgeInsets(top: 0,
+                                                               left: 0,
+                                                               bottom: 0,
+                                                               right: 0)
+        
         return true
     }
 
