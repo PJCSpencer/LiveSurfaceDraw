@@ -10,6 +10,28 @@ import Foundation
 import SwiftUI
 
 
+protocol PJCModifierProvider2
+{
+    // var project: PJCLiveSurfaceProject? { get }
+    
+    // init(_ project: PJCLiveSurfaceProject)
+    
+    // var cache: [?]
+    
+    func body() -> AnyView
+}
+
+protocol PJCModifierProvider
+{
+    // init(_ binding: Binding<PJCLiveSurfaceItem?>)
+    
+    // @Binding var binding: PJCLiveSurfaceItem?
+    
+    init?(_ item: PJCLiveSurfaceItem?)
+    
+    func body(/*to selection: PJCLiveSurfaceItem?*/) -> AnyView
+}
+
 enum PJCModifierToolset
 {
     case none

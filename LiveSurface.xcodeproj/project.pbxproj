@@ -30,6 +30,7 @@
 		C2FB594224D6B24B00B501F8 /* PJCTransformController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB594124D6B24B00B501F8 /* PJCTransformController+Additions.swift */; };
 		C2FB594424D75AAE00B501F8 /* PJCModifierToolset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB594324D75AAE00B501F8 /* PJCModifierToolset.swift */; };
 		C2FB594624D75B8E00B501F8 /* PJCLayerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB594524D75B8E00B501F8 /* PJCLayerPreview.swift */; };
+		C2FB594824D87CA200B501F8 /* PJCLiveSurfaceProject+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB594724D87CA200B501F8 /* PJCLiveSurfaceProject+Additions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		C2FB594124D6B24B00B501F8 /* PJCTransformController+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PJCTransformController+Additions.swift"; sourceTree = "<group>"; };
 		C2FB594324D75AAE00B501F8 /* PJCModifierToolset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCModifierToolset.swift; sourceTree = "<group>"; };
 		C2FB594524D75B8E00B501F8 /* PJCLayerPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCLayerPreview.swift; sourceTree = "<group>"; };
+		C2FB594724D87CA200B501F8 /* PJCLiveSurfaceProject+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PJCLiveSurfaceProject+Additions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				C29B1BC124D05D740023DEE4 /* PJCLiveSurfaceProject.swift */,
+				C2FB594724D87CA200B501F8 /* PJCLiveSurfaceProject+Additions.swift */,
 				C2D6826E24D023D1000E4E79 /* PJCLiveSurfaceItem.swift */,
 				C2FB594324D75AAE00B501F8 /* PJCModifierToolset.swift */,
 				C29B1BBA24D043090023DEE4 /* PJCSimpleShapes.swift */,
@@ -260,6 +263,7 @@
 				C225A1CB24D33DC20008A7E7 /* Foundation+Additions.swift in Sources */,
 				C225A1CD24D36B320008A7E7 /* PJCLayersView+additions.swift in Sources */,
 				C29B1BC424D087DC0023DEE4 /* PJCSelectionView.swift in Sources */,
+				C2FB594824D87CA200B501F8 /* PJCLiveSurfaceProject+Additions.swift in Sources */,
 				C2D6827124D02BF2000E4E79 /* PJCGeometry.swift in Sources */,
 				C2FB594624D75B8E00B501F8 /* PJCLayerPreview.swift in Sources */,
 				C2D6826924D01C0B000E4E79 /* PJCLiveSurfaceViewController.swift in Sources */,

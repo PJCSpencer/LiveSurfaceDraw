@@ -10,7 +10,7 @@ import UIKit
 import SwiftUI
 
 
-class PJCGeometry
+class PJCGeometry // TODO:Should this be a struct ..?
 {
     // MARK: - Property(s)
     
