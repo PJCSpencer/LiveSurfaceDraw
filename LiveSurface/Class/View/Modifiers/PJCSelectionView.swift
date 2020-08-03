@@ -9,7 +9,7 @@
 import SwiftUI
 
 
-let PJCHiddenButResponsiveOpacity: Double = 0.1
+let PJCHiddenButResponsiveOpacity: Double = 0.001
 
 protocol PJCControlPointShapeProvider
 {
@@ -143,14 +143,10 @@ struct PJCSelectionView: View
     {
         let cornerRadius: CGFloat = PJCControlPoint.radius * 2
         let wideCornerRadius: CGFloat = cornerRadius * 2
-        let sides: [CGFloat] =
-        [
-            self.rect.width,
-            self.rect.height
-        ] * 4
+        let sides: [CGFloat] = [rect.size.width, rect.size.height].map({ [$0 * 0.5] * 2 }).reduce([], +) * 2
         
         let dash = sides
-            .map({ [$0 * 0.5 - wideCornerRadius] })
+            .map({ [$0 - wideCornerRadius] })
             .joined(separator: [wideCornerRadius])
         
         let scaledRect = self.rect.insetBy(dx: -wideCornerRadius,

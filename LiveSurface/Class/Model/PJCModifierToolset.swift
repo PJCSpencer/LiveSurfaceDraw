@@ -22,7 +22,7 @@ class PJCModifierTools
     
 }
 
-class Toolset
+class Toolset // TODO:Support protocol ...
 {
     static var availableToolsetTypes: [Int]
     {
@@ -36,7 +36,7 @@ class Toolset
         if project.modtoolType == 7,
             let item = project.items[count] as PJCLiveSurfaceItem?
         {
-            return ModTool(fixedGeometry: item.geometry).asAnyView()
+            return PJCModifierTool(fixedGeometry: item.geometry).asAnyView()
         }
         return nil
     }

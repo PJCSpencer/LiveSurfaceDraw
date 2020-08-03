@@ -14,7 +14,7 @@ extension Array
     static func *(source: Array,
                   multiplier: Int) -> Array
     {
-        return (0...multiplier)
+        return (0..<multiplier)
             .map({ (_) in source })
             .reduce([], +)
     }

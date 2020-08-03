@@ -27,7 +27,7 @@ final class PJCTransformModifier: PJCModifierProvider
     }
 }
 
-protocol PJCDelegateClass: class { /* Whatever. */}
+protocol PJCDelegateClass: class { /* Whatever. */ }
 
 class PJCWeakDelegate
 {
@@ -96,7 +96,7 @@ final class PJCTransformTool: PJCWeakDelegate, PJCModifierProvider2
 
 
 
-struct ModTool: View
+struct PJCModifierTool: View
 {
     // var item: PJCLiveSurfaceItem
     
