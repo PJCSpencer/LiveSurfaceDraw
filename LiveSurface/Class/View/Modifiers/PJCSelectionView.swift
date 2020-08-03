@@ -9,7 +9,7 @@
 import SwiftUI
 
 
-let PJCHiddenButResponsiveOpacity: Double = 0.001
+let PJCHiddenButResponsiveOpacity: Double = 0.075
 
 protocol PJCControlPointShapeProvider
 {
@@ -121,6 +121,18 @@ struct PJCControlPoint: View, Identifiable
 
 struct PJCSelectionView: View
 {
+    // MARK: - Constant(s)
+    
+    static var minimumCombinedRadius: CGFloat = (PJCControlPoint.radius * PJCControlPoint.hitTestingScale) * 3
+    
+    static func constrained(_ dim: CGFloat) -> CGFloat /* TODO:Support operator ... */
+    {
+        return dim < PJCSelectionView.minimumCombinedRadius
+            ? PJCSelectionView.minimumCombinedRadius
+            : dim
+    }
+    
+    
     // MARK: - Property(s)
     
     let rect: CGRect
