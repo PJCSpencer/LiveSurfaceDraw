@@ -18,7 +18,9 @@ class PJCTransform2D
         .leftMiddle     : PJCTransforn2DScale.originWidth,
         .topMiddle      : PJCTransforn2DScale.originHeight,
         .rightMiddle    : PJCTransforn2DScale.sizeWidth,
-        .bottomMiddle   : PJCTransforn2DScale.sizeHeight
+        .bottomMiddle   : PJCTransforn2DScale.sizeHeight,
+        
+        .bottomRight    : PJCTransforn2DScale.sized
     ]
 }
 
@@ -59,9 +61,9 @@ class PJCTransforn2DScale
     static func sizeWidth(_ geometry: PJCGeometry,
                           _ dragLocation: CGPoint) -> PJCGeometry
     {
-        let offset = dragLocation.x - (geometry.origin.x + geometry.size.width)
-        let width = PJCSelectionView.constrained(geometry.size.width + offset)
-        let size = CGSize(width: width, height: geometry.size.height)
+        let sized = PJCTransforn2DScale.sized(geometry, dragLocation)
+        let size = CGSize(width: sized.size.width,
+                          height: geometry.size.height)
          
         return PJCGeometry(geometry.origin, size: size)
     }
@@ -69,10 +71,19 @@ class PJCTransforn2DScale
     static func sizeHeight(_ geometry: PJCGeometry,
                            _ dragLocation: CGPoint) -> PJCGeometry
     {
-        let offset = dragLocation.y - (geometry.origin.y + geometry.size.height)
-        let height = PJCSelectionView.constrained(geometry.size.height + offset)
-        let size = CGSize(width: geometry.size.width, height: height)
-         
+        let sized = PJCTransforn2DScale.sized(geometry, dragLocation)
+        let size = CGSize(width: geometry.size.width,
+                          height: sized.size.height)
+        
+        return PJCGeometry(geometry.origin, size: size)
+    }
+    
+    static func sized(_ geometry: PJCGeometry,
+                      _ dragLocation: CGPoint) -> PJCGeometry
+    {
+        let offset = dragLocation - (geometry.origin + geometry.size)
+        let size = (geometry.size + offset).greaterThan(PJCSelectionView.minimumCombinedRadius)
+        
         return PJCGeometry(geometry.origin, size: size)
     }
 }
