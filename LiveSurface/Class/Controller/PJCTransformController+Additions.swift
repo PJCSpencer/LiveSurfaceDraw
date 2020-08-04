@@ -20,6 +20,8 @@ class PJCTransform2D
         .rightMiddle    : PJCTransforn2DScale.sizedWidth,
         .bottomMiddle   : PJCTransforn2DScale.sizedHeight,
         
+        .topLeft        : PJCTransforn2DScale.sizedTopLeft,
+        .bottomLeft     : PJCTransforn2DScale.sizedBottomLeft,
         .topRight       : PJCTransforn2DScale.sizedTopRight,
         .bottomRight    : PJCTransforn2DScale.sizedBottomRight
     ]
@@ -45,6 +47,19 @@ class PJCTransforn2DScale
         return PJCGeometry(pt, size: size)
     }
     
+    static func sizedWidth(_ geometry: PJCGeometry,
+                          _ dragLocation: CGPoint) -> PJCGeometry
+    {
+        let sized = PJCTransforn2DScale.sizedBottomRight(geometry, dragLocation)
+        let size = CGSize(width: sized.size.width,
+                          height: geometry.size.height)
+         
+        return PJCGeometry(geometry.origin, size: size)
+    }
+    
+    
+    // MARK: - Lateral Vertically
+    
     static func sizedY(_ geometry: PJCGeometry,
                              _ dragLocation: CGPoint) -> PJCGeometry
     {
@@ -61,19 +76,6 @@ class PJCTransforn2DScale
         return PJCGeometry(pt, size: size)
     }
     
-    
-    // MARK: - Lateral Vertically
-    
-    static func sizedWidth(_ geometry: PJCGeometry,
-                          _ dragLocation: CGPoint) -> PJCGeometry
-    {
-        let sized = PJCTransforn2DScale.sizedBottomRight(geometry, dragLocation)
-        let size = CGSize(width: sized.size.width,
-                          height: geometry.size.height)
-         
-        return PJCGeometry(geometry.origin, size: size)
-    }
-    
     static func sizedHeight(_ geometry: PJCGeometry,
                            _ dragLocation: CGPoint) -> PJCGeometry
     {
@@ -87,15 +89,6 @@ class PJCTransforn2DScale
     
     // MARK: - Corner(s)
     
-    static func sizedBottomRight(_ geometry: PJCGeometry,
-                                 _ dragLocation: CGPoint) -> PJCGeometry
-    {
-        let offset = dragLocation - (geometry.origin + geometry.size)
-        let size = (geometry.size + offset).greaterThan(PJCSelectionView.minimumCombinedRadius)
-        
-        return PJCGeometry(geometry.origin, size: size)
-    }
-    
     static func sizedTopRight(_ geometry: PJCGeometry,
                               _ dragLocation: CGPoint) -> PJCGeometry
     {
@@ -105,6 +98,44 @@ class PJCTransforn2DScale
         
         if size.height <= PJCSelectionView.minimumCombinedRadius
         { pt.y = geometry.origin.y + geometry.size.height - PJCSelectionView.minimumCombinedRadius }
+        
+        return PJCGeometry(pt, size: size)
+    }
+    
+    static func sizedBottomRight(_ geometry: PJCGeometry,
+                                 _ dragLocation: CGPoint) -> PJCGeometry
+    {
+        let offset = dragLocation - (geometry.origin + geometry.size)
+        let size = (geometry.size + offset).greaterThan(PJCSelectionView.minimumCombinedRadius)
+        
+        return PJCGeometry(geometry.origin, size: size)
+    }
+    
+    static func sizedTopLeft(_ geometry: PJCGeometry,
+                             _ dragLocation: CGPoint) -> PJCGeometry
+    {
+        let offset = dragLocation - geometry.origin
+        var pt = geometry.origin + offset
+        let size = (geometry.size - offset).greaterThan(PJCSelectionView.minimumCombinedRadius)
+        
+        if size.height <= PJCSelectionView.minimumCombinedRadius
+        { pt.y = geometry.origin.y + geometry.size.height - PJCSelectionView.minimumCombinedRadius }
+        
+        if size.width <= PJCSelectionView.minimumCombinedRadius
+        {  pt.x = geometry.origin.x + geometry.size.width - PJCSelectionView.minimumCombinedRadius }
+        
+        return PJCGeometry(pt, size: size)
+    }
+    
+    static func sizedBottomLeft(_ geometry: PJCGeometry,
+                                _ dragLocation: CGPoint) -> PJCGeometry
+    {
+        let offset = dragLocation - (geometry.origin + (geometry.size * CGSize.unitHeight))
+        var pt = geometry.origin + (offset * CGPoint.unitX)
+        let size = (geometry.size + (offset * CGPoint.unitXNegative)).greaterThan(PJCSelectionView.minimumCombinedRadius)
+        
+        if size.width <= PJCSelectionView.minimumCombinedRadius
+        {  pt.x = geometry.origin.x + geometry.size.width - PJCSelectionView.minimumCombinedRadius }
         
         return PJCGeometry(pt, size: size)
     }
