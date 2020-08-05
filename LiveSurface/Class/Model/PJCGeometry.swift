@@ -39,6 +39,9 @@ class PJCGeometry // TODO:Should this be a struct ..?
 
 extension PJCGeometry
 {
+    static var identity: PJCGeometry
+    { return PJCGeometry() }
+    
     var rect: CGRect
     { return CGRect(origin: self.origin, size: self.size) }
 }

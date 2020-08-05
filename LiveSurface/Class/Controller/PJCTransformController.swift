@@ -11,23 +11,13 @@ import SwiftUI
 
 struct PJCModifierTool // PJCModifierProvider2
 {
-    /*fileprivate var item: PJCLiveSurfaceItem
+    // MARK: - Property(s)
     
-    init?(_ item: PJCLiveSurfaceItem?)
-    {
-        guard let item = item else
-        { return nil }
-        
-        self.item = item
-    }*/
-    
-    // @Binding var selectedIndex: Int
+    private(set) var item: PJCLiveSurfaceItem
     
     @State private(set) var controlPoint: PJCControlPoint? = nil
     
     @State private(set) var offset: CGPoint = .zero
-    
-    private(set) var fixedGeometry: PJCGeometry
     
     private var gesture: some Gesture
     {
@@ -36,14 +26,14 @@ struct PJCModifierTool // PJCModifierProvider2
             
                 if value.location.x > 0,
                     self.controlPoint != nil
-            { self.offset = value.location }
+                { self.offset = value.location }
             
-            guard self.controlPoint == nil else
-            { return }
+                guard self.controlPoint == nil else
+                { return }
             
-            self.controlPoint = PJCSelectionView(rect: self.fixedGeometry.rect)
-                .controlPoints()
-                .filter({ $0.selectionFrame.contains(value.location) }).first
+                self.controlPoint = PJCSelectionView(rect: self.item.geometry.rect)
+                    .controlPoints()
+                    .filter({ $0.selectionFrame.contains(value.location) }).first
         }
         .onEnded
         { (value) in
@@ -57,16 +47,14 @@ extension PJCModifierTool: View
 {
     var body: some View
     {
-        var frame = self.fixedGeometry.rect
-        
         if let controlPoint = self.controlPoint,
             let handler = PJCTransform2D.table[controlPoint.position]
         {
-            frame = handler(self.fixedGeometry,
-                            self.offset).rect
+            self.item.geometry = handler(self.item.geometry,
+                            self.offset)
         }
         
-        return PJCSelectionView(rect: frame)
+        return PJCSelectionView(rect: self.item.geometry.rect)
             .gesture(self.gesture)
     }
 }

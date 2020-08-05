@@ -34,7 +34,6 @@ extension PJCLayersView: View
                     {
                         self.selectedIndex = item.index
                     }
-                    .padding()
                     .frame(width: geometry.size.width,
                            height: 70)
                 }

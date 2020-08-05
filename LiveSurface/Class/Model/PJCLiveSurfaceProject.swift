@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftUI
 
 
 class PJCLiveSurfaceProject: PJCDelegateClass, ObservableObject
@@ -26,25 +25,7 @@ class PJCLiveSurfaceProject: PJCDelegateClass, ObservableObject
     init()
     {
         DispatchQueue.main.asyncAfter(deadline: .now() + Double(1))
-        {
-            /*let count: Int = Int.random(in: 0..<self.items.count)
-            
-            guard let _ = self.items[count] as PJCLiveSurfaceItem? else
-            { return }
-            
-            self.modifier = PJCTransformTool(item)*/
-            
-            self.modtoolType = 7
-        }
-        
-        /*for i in 1...10
-        {
-            DispatchQueue.main.asyncAfter(deadline: .now() + Double(i))
-            {
-                let element = PJCLiveSurfaceItem.create(self.items.count)
-                self.items.append(element)
-            }
-        }*/
+        { self.modtoolType = 7 }
     }
 }
 

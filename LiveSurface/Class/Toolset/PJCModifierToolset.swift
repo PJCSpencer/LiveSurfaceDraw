@@ -61,7 +61,7 @@ class Toolset // TODO:Support protocol ...
         switch project.modtoolType
         {
         case 7:
-            return PJCModifierTool(fixedGeometry: item.geometry).asAnyView()
+            return PJCModifierTool(item: item).asAnyView()
         default:
             return nil
         }
