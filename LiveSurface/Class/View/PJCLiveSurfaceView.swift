@@ -9,28 +9,32 @@
 import SwiftUI
 
 
-struct PJCLiveSurfaceView: View
+struct PJCLiveSurfaceView
 {
     // MARK: - Property(s)
     
     private(set) var project: PJCLiveSurfaceProject = PJCLiveSurfaceProject()
     
-    
-    // MARK: - Implementing a Custom View
-    
+    @State var selectedIndex: Int = -1
+}
+
+extension PJCLiveSurfaceView: View
+{
     var body: some View
     {
-        PJCCanvasView(project: self.project)
-        
-        /*NavigationView
+        NavigationView
         {
-            PJCLayersView(project: self.project)
-            PJCCanvasView(project: self.project)
+            PJCLayersView(project: self.project,
+                          selectedIndex: self.$selectedIndex)
+            
+            PJCCanvasView(project: self.project,
+                          selectedIndex: self.$selectedIndex)
         }
-        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))*/
+        .padding(.leading, 0.75)
     }
 }
 
+// MARK: - PreviewProvider
 struct PJCLiveSurfaceView_Previews: PreviewProvider
 {
     static var previews: some View

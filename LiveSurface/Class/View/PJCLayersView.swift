@@ -9,17 +9,17 @@
 import SwiftUI
 
 
-struct PJCLayersView: View
+struct PJCLayersView
 {
     // MARK: - Property(s)
     
     @ObservedObject private(set) var project: PJCLiveSurfaceProject
     
-    @State var selectedItem: PJCLiveSurfaceItem? = nil
-    
-    
-    // MARK: - Implementing a Custom View
-    
+    @Binding var selectedIndex: Int
+}
+
+extension PJCLayersView: View
+{
     var body: some View
     {
         GeometryReader
@@ -32,7 +32,7 @@ struct PJCLayersView: View
                         
                     PJCLayerPreview(item: item).onTapGesture
                     {
-                        self.selectedItem = item
+                        self.selectedIndex = item.index
                     }
                     .padding()
                     .frame(width: geometry.size.width,
@@ -45,11 +45,13 @@ struct PJCLayersView: View
     }
 }
 
+// MARK: - PreviewProvider
 struct PJCLayersView_Previews: PreviewProvider
 {
     static var previews: some View
     {
-        PJCLayersView(project: PJCLiveSurfaceProject())
+        PJCLayersView(project: PJCLiveSurfaceProject(),
+                      selectedIndex: .constant(0))
     }
 }
 

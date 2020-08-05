@@ -9,7 +9,7 @@
 import SwiftUI
 
 
-let PJCHiddenButResponsiveOpacity: Double = 0.075
+let PJCHiddenButResponsiveOpacity: Double = 0.001
 
 protocol PJCControlPointShapeProvider
 {
@@ -23,7 +23,7 @@ enum PJCControlPointShape
     case square
 }
 
-extension PJCControlPointShape
+extension PJCControlPointShape // TODO:Support protocol ...
 {
     func path(_ rect: CGRect) -> Path
     { self == .circle ? Path(ellipseIn: rect) : Path(rect) }
@@ -32,6 +32,9 @@ extension PJCControlPointShape
 // MARK: - PJCSelectionControlPointPosition
 enum PJCControlPointPosition: CGPoint, CaseIterable
 {
+    // case centre = {0.5, 0.5}
+    // case rotate = {0.5, -0.2}
+    
     case topLeft = "{0, 0}", topMiddle = "{0.5, 0}", topRight = "{1, 0}"
     case leftMiddle = "{0, 0.5}", rightMiddle = "{1, 0.5}"
     case bottomLeft = "{0, 1}", bottomMiddle = "{0.5, 1}", bottomRight = "{1, 1}"

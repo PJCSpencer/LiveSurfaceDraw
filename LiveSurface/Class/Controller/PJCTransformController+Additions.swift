@@ -27,12 +27,21 @@ class PJCTransform2D
     ]
 }
 
+class PJCTransforn2DTranslate
+{
+    static func translate(_ geometry: PJCGeometry,
+                          _ dragLocation: CGPoint) -> PJCGeometry
+    {
+        return geometry
+    }
+}
+
 class PJCTransforn2DScale
 {
     // MARK: - Lateral Horizonatlly
     
     static func sizedX(_ geometry: PJCGeometry,
-                            _ dragLocation: CGPoint) -> PJCGeometry
+                       _ dragLocation: CGPoint) -> PJCGeometry
     {
         let offset = dragLocation.x - geometry.origin.x
         let width = PJCSelectionView.constrained(geometry.size.width - offset)
@@ -61,7 +70,7 @@ class PJCTransforn2DScale
     // MARK: - Lateral Vertically
     
     static func sizedY(_ geometry: PJCGeometry,
-                             _ dragLocation: CGPoint) -> PJCGeometry
+                       _ dragLocation: CGPoint) -> PJCGeometry
     {
         let offset = dragLocation.y - geometry.origin.y
         let height = PJCSelectionView.constrained(geometry.size.height - offset)

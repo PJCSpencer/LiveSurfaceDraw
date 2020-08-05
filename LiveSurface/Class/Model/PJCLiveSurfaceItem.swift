@@ -59,8 +59,8 @@ extension PJCLiveSurfaceItem // TODO:Support protocol ...
     {
         let radius: CGFloat = 50.0
         let scaledRadius: CGFloat = radius * 2
-        let width = (UIScreen.main.bounds.width * 0.75) - scaledRadius
-        let height = (UIScreen.main.bounds.height * 0.75) - scaledRadius
+        let width = (UIScreen.main.bounds.width * 1) - scaledRadius
+        let height = (UIScreen.main.bounds.height * 0.85) - scaledRadius
         let pt = CGPoint(x: CGFloat.random(in: radius..<width),
                          y: CGFloat.random(in: radius..<height))
         let size = CGSize(width: scaledRadius,

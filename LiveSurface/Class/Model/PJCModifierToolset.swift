@@ -51,16 +51,20 @@ class Toolset // TODO:Support protocol ...
         return [0, 7]
     }
     
-    static func tool(_ project: PJCLiveSurfaceProject) -> AnyView?
+    static func tool(_ project: PJCLiveSurfaceProject,
+                     index: Int) -> AnyView?
     {
-        let count: Int = Int.random(in: 0..<project.items.count)
+        guard index >= 0 && index < project.items.count,
+            let item = project.items[index] as PJCLiveSurfaceItem? else
+        { return nil }
         
-        if project.modtoolType == 7,
-            let item = project.items[count] as PJCLiveSurfaceItem?
+        switch project.modtoolType
         {
+        case 7:
             return PJCModifierTool(fixedGeometry: item.geometry).asAnyView()
+        default:
+            return nil
         }
-        return nil
     }
 }
 

@@ -9,7 +9,7 @@
 import SwiftUI
 
 
-struct PJCCanvasView: View
+struct PJCCanvasView
 {
     // MARK: - Property(s)
     
@@ -17,29 +17,34 @@ struct PJCCanvasView: View
 
     @State var canvasColor: Color = .white
     
-    
-    // MARK: - Implementing a Custom View
-    
+    @Binding var selectedIndex: Int
+}
+
+extension PJCCanvasView: View
+{
     var body: some View
     {
-        return ZStack(alignment: .topLeading)
+        ZStack(alignment: .topLeading)
         {
             self.canvasColor.edgesIgnoringSafeArea(.all)
             
             ForEach(self.project.items)
             { (item) in PJCCanvasView.body(item) }
             
-            Toolset.tool(self.project)
+            Toolset.tool(self.project,
+                         index: self.selectedIndex)
         }
         .drawingGroup()
     }
 }
 
+// MARK: - PreviewProvider
 struct PJCCanvasView_Previews: PreviewProvider
 {
     static var previews: some View
     {
-        PJCCanvasView(project: PJCLiveSurfaceProject())
+        PJCCanvasView(project: PJCLiveSurfaceProject(),
+                      selectedIndex: .constant(0))
     }
 }
 

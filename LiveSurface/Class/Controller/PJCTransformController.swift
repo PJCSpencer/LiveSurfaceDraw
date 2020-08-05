@@ -9,7 +9,7 @@
 import SwiftUI
 
 
-struct PJCModifierTool: View // PJCModifierProvider2
+struct PJCModifierTool // PJCModifierProvider2
 {
     /*fileprivate var item: PJCLiveSurfaceItem
     
@@ -21,18 +21,21 @@ struct PJCModifierTool: View // PJCModifierProvider2
         self.item = item
     }*/
     
+    // @Binding var selectedIndex: Int
+    
     @State private(set) var controlPoint: PJCControlPoint? = nil
     
     @State private(set) var offset: CGPoint = .zero
     
-    @State private(set) var fixedGeometry: PJCGeometry
+    private(set) var fixedGeometry: PJCGeometry
     
     private var gesture: some Gesture
     {
         DragGesture(minimumDistance: 1)
             .onChanged { value in
             
-            if self.controlPoint != nil
+                if value.location.x > 0,
+                    self.controlPoint != nil
             { self.offset = value.location }
             
             guard self.controlPoint == nil else
@@ -46,16 +49,17 @@ struct PJCModifierTool: View // PJCModifierProvider2
         { (value) in
             
             self.controlPoint = nil
-            self.offset = .zero
         }
     }
-    
+}
+
+extension PJCModifierTool: View
+{
     var body: some View
     {
         var frame = self.fixedGeometry.rect
         
-        if self.offset.x > 0,
-            let controlPoint = self.controlPoint,
+        if let controlPoint = self.controlPoint,
             let handler = PJCTransform2D.table[controlPoint.position]
         {
             frame = handler(self.fixedGeometry,
