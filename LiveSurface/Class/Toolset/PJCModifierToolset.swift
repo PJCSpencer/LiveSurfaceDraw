@@ -10,17 +10,6 @@ import Foundation
 import SwiftUI
 
 
-protocol PJCModifierProvider2
-{
-    // var project: PJCLiveSurfaceProject? { get }
-    
-    // init(_ project: PJCLiveSurfaceProject)
-    
-    // var cache: [?]
-    
-    func body() -> AnyView
-}
-
 protocol PJCModifierProvider
 {
     // init(_ binding: Binding<PJCLiveSurfaceItem?>)
@@ -51,14 +40,13 @@ class Toolset // TODO:Support protocol ...
         return [0, 7]
     }
     
-    static func tool(_ project: PJCLiveSurfaceProject,
-                     index: Int) -> AnyView?
+    static func tool(_ tool: Int,
+                     for item: PJCLiveSurfaceItem?) -> AnyView?
     {
-        guard index >= 0 && index < project.items.count,
-            let item = project.items[index] as PJCLiveSurfaceItem? else
+        guard let item = item else
         { return nil }
         
-        switch project.modtoolType
+        switch tool
         {
         case 7:
             return PJCModifierTool(item: item).asAnyView()

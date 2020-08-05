@@ -10,7 +10,7 @@ import UIKit
 import SwiftUI
 
 
-class PJCGeometry // TODO:Should this be a struct ..?
+struct PJCGeometry // TODO:Should this be a struct ..?
 {
     // MARK: - Property(s)
     
@@ -18,7 +18,7 @@ class PJCGeometry // TODO:Should this be a struct ..?
     
     var size: CGSize
     
-    let alignment: Alignment = .center
+    var alignment: Alignment = .center
     
     
     // MARK: - Initialisation

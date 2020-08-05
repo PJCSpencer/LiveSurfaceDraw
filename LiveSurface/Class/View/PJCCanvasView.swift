@@ -17,7 +17,17 @@ struct PJCCanvasView
 
     @State var canvasColor: Color = .white
     
-    @Binding var selectedIndex: Int
+    @Binding private(set) var selectedItem: PJCLiveSurfaceItem?
+    
+    
+    // MARK: - Initialisation
+    
+    init(_ project: PJCLiveSurfaceProject,
+         binding: Binding<PJCLiveSurfaceItem?>)
+    {
+        self.project = project
+        self._selectedItem = binding // Nasty.
+    }
 }
 
 extension PJCCanvasView: View
@@ -31,8 +41,8 @@ extension PJCCanvasView: View
             ForEach(self.project.items)
             { (item) in PJCCanvasView.body(item) }
             
-            Toolset.tool(self.project,
-                         index: self.selectedIndex)
+            Toolset.tool(self.project.modtoolType,
+                         for: self.selectedItem)
         }
         .drawingGroup()
     }
@@ -43,8 +53,8 @@ struct PJCCanvasView_Previews: PreviewProvider
 {
     static var previews: some View
     {
-        PJCCanvasView(project: PJCLiveSurfaceProject(),
-                      selectedIndex: .constant(0))
+        PJCCanvasView(PJCLiveSurfaceProject(),
+                      binding: .constant(nil))
     }
 }
 

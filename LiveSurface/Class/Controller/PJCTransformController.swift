@@ -9,7 +9,7 @@
 import SwiftUI
 
 
-struct PJCModifierTool // PJCModifierProvider2
+struct PJCModifierTool // PJCModifierProvider
 {
     // MARK: - Property(s)
     
@@ -24,7 +24,7 @@ struct PJCModifierTool // PJCModifierProvider2
         DragGesture(minimumDistance: 1)
             .onChanged { value in
             
-                if value.location.x > 0,
+                if value.location.length > 0,
                     self.controlPoint != nil
                 { self.offset = value.location }
             
@@ -51,7 +51,7 @@ extension PJCModifierTool: View
             let handler = PJCTransform2D.table[controlPoint.position]
         {
             self.item.geometry = handler(self.item.geometry,
-                            self.offset)
+                                         self.offset)
         }
         
         return PJCSelectionView(rect: self.item.geometry.rect)

@@ -15,7 +15,17 @@ struct PJCLayersView
     
     @ObservedObject private(set) var project: PJCLiveSurfaceProject
     
-    @Binding var selectedIndex: Int
+    @Binding private(set) var selectedItem: PJCLiveSurfaceItem?
+    
+    
+    // MARK: - Initialisation
+    
+    init(_ project: PJCLiveSurfaceProject,
+         binding: Binding<PJCLiveSurfaceItem?>)
+    {
+        self.project = project
+        self._selectedItem = binding // Yes, nasty.
+    }
 }
 
 extension PJCLayersView: View
@@ -32,7 +42,7 @@ extension PJCLayersView: View
                         
                     PJCLayerPreview(item: item).onTapGesture
                     {
-                        self.selectedIndex = item.index
+                        self.selectedItem = item
                     }
                     .frame(width: geometry.size.width,
                            height: 70)
@@ -49,8 +59,8 @@ struct PJCLayersView_Previews: PreviewProvider
 {
     static var previews: some View
     {
-        PJCLayersView(project: PJCLiveSurfaceProject(),
-                      selectedIndex: .constant(0))
+        PJCLayersView(PJCLiveSurfaceProject(),
+                      binding: .constant(nil))
     }
 }
 

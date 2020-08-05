@@ -59,6 +59,12 @@ extension CGPoint
     { return CGSize(width: self.x, height: self.y) }
     
     
+    // MARK: - Utility
+    
+    var length: CGFloat
+    { return sqrt(self.x * self.x + self.y * self.y) }
+    
+    
     // MARK: - Containment
     
     func greaterThan(_ value: CGFloat) -> CGPoint

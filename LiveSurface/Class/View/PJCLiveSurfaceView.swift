@@ -15,7 +15,7 @@ struct PJCLiveSurfaceView
     
     private(set) var project: PJCLiveSurfaceProject = PJCLiveSurfaceProject()
     
-    @State var selectedIndex: Int = -1
+    @State private(set) var selectedItem: PJCLiveSurfaceItem? = nil
 }
 
 extension PJCLiveSurfaceView: View
@@ -24,11 +24,11 @@ extension PJCLiveSurfaceView: View
     {
         NavigationView
         {
-            PJCLayersView(project: self.project,
-                          selectedIndex: self.$selectedIndex)
+            PJCLayersView(self.project,
+                          binding: self.$selectedItem)
             
-            PJCCanvasView(project: self.project,
-                          selectedIndex: self.$selectedIndex)
+            PJCCanvasView(self.project,
+                          binding: self.$selectedItem)
         }
         .padding(.leading, 0.75)
     }
