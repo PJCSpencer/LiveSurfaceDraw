@@ -44,9 +44,9 @@ extension PJCLayersView: View
                     {
                         self.selectedItem = item
                     }
-                    .listRowBackground(self.selectedItem == item ? Color(UIColor.systemGroupedBackground) : Color.clear)
+                    .listRowBackground(self.selectedItem == item ? Color(UIColor.systemGroupedBackground) : Color.clear) // TODO:Resolve ...
                     .frame(width: geometry.size.width,
-                           height: 70)
+                           height: 60)
                 }
             }
             .navigationBarTitle("Layers")
