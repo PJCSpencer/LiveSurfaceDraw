@@ -44,12 +44,12 @@ extension PJCLayersView: View
                     {
                         self.selectedItem = item
                     }
+                    .listRowBackground(self.selectedItem == item ? Color(UIColor.systemGroupedBackground) : Color.clear)
                     .frame(width: geometry.size.width,
                            height: 70)
                 }
             }
-            .navigationBarTitle("Layers",
-                                displayMode: .inline)
+            .navigationBarTitle("Layers")
         }
     }
 }

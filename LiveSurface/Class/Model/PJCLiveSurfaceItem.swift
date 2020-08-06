@@ -48,31 +48,12 @@ class PJCLiveSurfaceItem: PJCDelegateClass, Identifiable
     }
 }
 
-extension PJCLiveSurfaceItem // TODO:Support protocol ...
+extension PJCLiveSurfaceItem: Equatable
 {
-    static let mocked: [PJCLiveSurfaceItem] = (0..<10).map({ index in
-        
-        PJCLiveSurfaceItem.create(index)
-    })
-    
-    static func create(_ index: Int) -> PJCLiveSurfaceItem
+    static func == (lhs: PJCLiveSurfaceItem,
+                    rhs: PJCLiveSurfaceItem) -> Bool
     {
-        let radius: CGFloat = 50.0
-        let scaledRadius: CGFloat = radius * 2
-        let width = (UIScreen.main.bounds.width * 1) - scaledRadius
-        let height = (UIScreen.main.bounds.height * 0.85) - scaledRadius
-        let pt = CGPoint(x: CGFloat.random(in: radius..<width),
-                         y: CGFloat.random(in: radius..<height))
-        let size = CGSize(width: scaledRadius,
-                          height: scaledRadius)
-        
-        let geometry = PJCGeometry(pt,
-                                   size: size)
-        
-        return PJCLiveSurfaceItem(index,
-                                  name: "Untitled_\(index)",
-                                  geometry: geometry,
-                                  path: PJCSimpleShapes.random())
+        return lhs.index == rhs.index && lhs.name == rhs.name
     }
 }
 

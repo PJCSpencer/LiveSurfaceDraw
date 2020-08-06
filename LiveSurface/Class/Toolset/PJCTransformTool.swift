@@ -1,5 +1,5 @@
 //
-//  PJCTransformController.swift
+//  PJCTransformTool.swift
 //  LiveSurface
 //
 //  Created by Peter Spencer on 28/07/2020.
@@ -9,7 +9,7 @@
 import SwiftUI
 
 
-struct PJCModifierTool // PJCModifierProvider
+struct PJCTransformTool // TODO:Support PJCModifierProvider ...
 {
     // MARK: - Property(s)
     
@@ -39,11 +39,12 @@ struct PJCModifierTool // PJCModifierProvider
         { (value) in
             
             self.controlPoint = nil
+            self.offset = .zero
         }
     }
 }
 
-extension PJCModifierTool: View
+extension PJCTransformTool: View
 {
     var body: some View
     {

@@ -75,7 +75,7 @@ struct PJCControlPoint: View, Identifiable
     
     let controlFrame: CGRect
     
-    var relativeFrame: CGRect
+    var relativeFrame: CGRect // TODO:Support utility function for both relative and selection frames ...
     {
         let pt = self.position.rawValue
         let x = self.controlFrame.origin.x + (self.controlFrame.width * pt.x) - PJCControlPoint.radius
