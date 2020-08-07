@@ -23,11 +23,16 @@ extension CGPoint: ExpressibleByStringLiteral
 
 extension CGRect
 {
+    // MARK: - Property(s)
+    
     var center: CGPoint
     { return CGPoint(x: midX, y: midY) }
     
     var concatenated: CGPoint
     { return (self.origin + self.size) }
+    
+    
+    // MARK: - Utility
     
     func inset(by value: CGFloat) -> CGRect
     {
@@ -99,6 +104,10 @@ extension CGPoint
     static func * (lhs: CGPoint,
                    rhs: CGSize) -> CGPoint
     { return CGPoint(x: lhs.x * rhs.width, y: lhs.y * rhs.height) }
+    
+    static func * (lhs: CGPoint,
+                   rhs: CGFloat) -> CGPoint
+    { return CGPoint(x: lhs.x * rhs, y: lhs.y * rhs) }
 }
 
 extension CGSize
@@ -120,6 +129,13 @@ extension CGSize
     
     var point: CGPoint
     { return CGPoint(x: self.width, y: self.height) }
+    
+    func centered(in source: CGSize) -> CGRect
+    {
+        return CGRect(origin: CGPoint(x: (source.width * 0.5) - (self.width * 0.5),
+                                      y: (source.height * 0.5) - (self.height * 0.5)),
+                      size: self)
+    }
     
     
     // MARK: - Comparison
@@ -161,5 +177,9 @@ extension CGSize
     static func * (lhs: CGSize,
                    rhs: CGSize) -> CGSize
     { return CGSize(width: lhs.width * rhs.width, height: lhs.height * rhs.height) }
+    
+    static func * (lhs: CGSize,
+                   rhs: CGFloat) -> CGSize
+    { return CGSize(width: lhs.width * rhs, height: lhs.height * rhs) }
 }
 

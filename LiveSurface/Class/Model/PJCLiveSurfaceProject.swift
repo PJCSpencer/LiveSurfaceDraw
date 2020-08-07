@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 class PJCLiveSurfaceProject: PJCDelegateClass, ObservableObject
@@ -15,9 +16,11 @@ class PJCLiveSurfaceProject: PJCDelegateClass, ObservableObject
     
     @Published var title: String = "Untitled Project"
     
+    @Published var size: CGSize = UIScreen.main.bounds.size
+    
     @Published private(set) var items: [PJCLiveSurfaceItem] = PJCLiveSurfaceItem.mocked // TODO:Support layer group(s) ...
     
-    @Published var modtoolType: Int = 0
+    @Published var modtoolType: Int = 0 // TODO:Support abstraction ...
     
     
     // MARK: - Initialisation

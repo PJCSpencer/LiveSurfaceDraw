@@ -9,7 +9,7 @@
 import SwiftUI
 
 
-typealias PJCLiveSurfaceItemPathProviderHandler = (PJCLiveSurfaceItem) -> Path
+typealias PJCLiveSurfaceItemPathProviderHandler = (CGRect) -> Path
 
 protocol PJCLiveSurfaceItemPathProvider
 {

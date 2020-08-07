@@ -30,7 +30,7 @@ extension PJCLiveSurfaceView: View
             PJCCanvasView(self.project,
                           binding: self.$selectedItem)
         }
-        .padding(.leading, 0.75)
+        .padding(.leading, 0.95)
     }
 }
 

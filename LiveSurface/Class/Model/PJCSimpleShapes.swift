@@ -15,9 +15,9 @@ class PJCSimpleShapes
     
     static let supported: [PJCLiveSurfaceItemPathProviderHandler] =
     [
-        PJCCircle.path,
-        PJCSquare.path,
-        PJCTriangle.path
+        PJCCircle().path,
+        PJCSquare().path,
+        PJCTriangle().path
     ]
     
     

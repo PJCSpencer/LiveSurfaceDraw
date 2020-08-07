@@ -9,19 +9,15 @@
 import SwiftUI
 
 
-let PJCLayerPreviewScale: CGFloat = 0.85 // NB:This will probably be removed.
-
 struct PJCLayerPreview
 {
     // MARK: - Property(s)
     
     @State private(set) var item: PJCLiveSurfaceItem
     
+    @State private(set) var projectSize: CGSize
+    
     @State private(set) var isHidden: Bool = false
-    
-    // isSelected: Bool
-    
-    // previewImageSize: CGSize
 }
 
 extension PJCLayerPreview: View
@@ -51,15 +47,14 @@ extension PJCLayerPreview: View
                     
                     Text(self.item.name)
                         .frame(alignment: .trailing)
-                        .font(.system(size: 18))
+                        .font(.system(size: 16))
                         .foregroundColor(Color(white: 0.2))
                     
                     Spacer().frame(width: 16)
                     
                     PJCLayerPreviewImage(item: self.$item)
-                        .frame(width: reader.size.height * (PJCLayerPreviewScale * 1.4), /* TODO:Resolve ... */
-                               height: reader.size.height * PJCLayerPreviewScale,
-                               alignment: .bottom)
+                        .frame(width: self.projectSize.width,
+                               height: self.projectSize.height)
                     
                     Spacer().frame(width: 32)
                     

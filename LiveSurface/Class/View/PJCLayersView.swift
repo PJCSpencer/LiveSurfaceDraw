@@ -39,14 +39,15 @@ extension PJCLayersView: View
             {
                 ForEach(self.project.items)
                 { (item) in
-                        
-                    PJCLayerPreview(item: item).onTapGesture
+                    
+                    PJCLayerPreview(item: item,
+                                    projectSize: self.project.size * 0.065).onTapGesture
                     {
                         self.selectedItem = item
                     }
                     .listRowBackground(self.selectedItem == item ? Color(UIColor.systemGroupedBackground) : Color.clear) // TODO:Resolve ...
                     .frame(width: geometry.size.width,
-                           height: 60)
+                           height: 50)
                 }
             }
             .navigationBarTitle("Layers")
