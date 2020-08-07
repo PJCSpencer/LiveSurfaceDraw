@@ -11,19 +11,21 @@ import SwiftUI
 
 let PJCLayerPreviewScale: CGFloat = 0.85 // NB:This will probably be removed.
 
-struct PJCLayerPreview: View
+struct PJCLayerPreview
 {
     // MARK: - Property(s)
     
     @State private(set) var item: PJCLiveSurfaceItem
     
+    @State private(set) var isHidden: Bool = false
+    
     // isSelected: Bool
     
     // previewImageSize: CGSize
-    
-    
-    // MARK: - Implementing a Custom View
-    
+}
+
+extension PJCLayerPreview: View
+{
     var body: some View
     {
         GeometryReader
@@ -36,12 +38,14 @@ struct PJCLayerPreview: View
                 
                 HStack
                 {
-                    Button(action: { /* TODO: */ })
-                    {
-                        Image("LayerShow")
-                            .resizable()
-                            .frame(width: 22, height: 22)
-                    }
+                    Image(self.isHidden ? "LayerHide" : "LayerShow") /* TODO:Discover switch ViewModifier to provide resource ... */
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .onTapGesture
+                        {
+                            self.isHidden = !self.isHidden
+                            self.item.isHidden = self.isHidden
+                        }
                     
                     Spacer()
                     
@@ -61,33 +65,6 @@ struct PJCLayerPreview: View
                     
                 }.frame(alignment: .trailing)
             }.frame(width: reader.size.width)
-        }
-    }
-}
-
-struct PJCLayerPreviewImage: View
-{
-    // MARK: - Property(s)
-    
-    @Binding var item: PJCLiveSurfaceItem
-    
-    
-    // MARK: - Implementing a Custom View
-    
-    var body: some View
-    {
-        ZStack
-        {
-            RoundedRectangle(cornerRadius: 4)
-                .fill(Color.white)
-            
-            RoundedRectangle(cornerRadius: 4)
-                .fill(Color.blue.opacity(0.05))
-            
-            RoundedRectangle(cornerRadius: 4)
-                .stroke(Color.blue.opacity(0.3))
-            
-            // TODO:Support path ...
         }
     }
 }

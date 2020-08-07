@@ -33,6 +33,8 @@ class PJCLiveSurfaceItem: PJCDelegateClass, Identifiable
     
     let path: PJCLiveSurfaceItemPathProviderHandler
     
+    var isHidden: Bool = false
+    
     
     // MARK: - Initialisation
     

@@ -38,7 +38,7 @@ extension PJCCanvasView: View
         {
             self.canvasColor.edgesIgnoringSafeArea(.all)
             
-            ForEach(self.project.items)
+            ForEach(self.project.items.filter({ !$0.isHidden }))
             { (item) in PJCCanvasView.body(item) }
             
             Toolset.tool(self.project.modtoolType,
