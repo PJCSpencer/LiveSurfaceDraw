@@ -16,7 +16,7 @@ protocol PJCLiveSurfaceItemPathProvider
     static func path(_ item: PJCLiveSurfaceItem) -> Path
 }
 
-class PJCLiveSurfaceItem: Identifiable
+class PJCLiveSurfaceItem: ObservableObject, Identifiable
 {
     // MARK: - Specifying the Identified Item
     
@@ -29,7 +29,7 @@ class PJCLiveSurfaceItem: Identifiable
     
     var name: String
     
-    var geometry: PJCGeometry
+    @Published var geometry: PJCGeometry
     
     let path: PJCLiveSurfaceItemPathProviderHandler
     
@@ -47,6 +47,14 @@ class PJCLiveSurfaceItem: Identifiable
         self.name = name
         self.geometry = geometry
         self.path = path
+    }
+    
+    init()
+    {
+        self.index = -1
+        self.name = ""
+        self.geometry = PJCGeometry()
+        self.path = { (_) in Path() }
     }
 }
 

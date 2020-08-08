@@ -15,7 +15,7 @@ struct PJCLayerPreviewImage
     
     static let cornerRadius: CGFloat = 4
     
-    static let padding: CGFloat = 8
+    static let padding: CGFloat = 10
     
     
     // MARK: - Property(s)
