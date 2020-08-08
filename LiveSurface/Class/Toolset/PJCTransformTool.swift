@@ -47,7 +47,7 @@ struct PJCTransformTool // TODO:Support PJCModifierProvider ...
 extension PJCTransformTool: View
 {
     var body: some View
-    {
+    { 
         if let controlPoint = self.controlPoint,
             let handler = PJCTransform2D.table[controlPoint.position]
         {

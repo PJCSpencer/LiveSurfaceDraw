@@ -11,6 +11,11 @@ import SwiftUI
 
 struct PJCLayersView
 {
+    // MARK: - Constant(s)
+    
+    static let previewScale: CGFloat = 0.065
+    
+    
     // MARK: - Property(s)
     
     @ObservedObject private(set) var project: PJCLiveSurfaceProject
@@ -41,7 +46,7 @@ extension PJCLayersView: View
                 { (item) in
                     
                     PJCLayerPreview(item: item,
-                                    projectSize: self.project.size * 0.065).onTapGesture
+                                    projectSize: self.project.size * Self.previewScale).onTapGesture
                     {
                         self.selectedItem = item
                     }

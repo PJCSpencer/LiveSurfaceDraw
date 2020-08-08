@@ -13,7 +13,7 @@ struct PJCLiveSurfaceView
 {
     // MARK: - Property(s)
     
-    private(set) var project: PJCLiveSurfaceProject = PJCLiveSurfaceProject()
+    @State private(set) var project: PJCLiveSurfaceProject = PJCLiveSurfaceProject()
     
     @State private(set) var selectedItem: PJCLiveSurfaceItem? = nil
 }
@@ -26,11 +26,14 @@ extension PJCLiveSurfaceView: View
         {
             PJCLayersView(self.project,
                           binding: self.$selectedItem)
+                .navigationBarItems(leading: Button(action: self.project.share, label: { Image(systemName: "square.and.arrow.up") }),
+                                    trailing: Button(action: self.project.add, label: { Text("New Shape") }))
             
             PJCCanvasView(self.project,
                           binding: self.$selectedItem)
         }
         .padding(.leading, 0.95)
+        .statusBar(hidden: true)
     }
 }
 

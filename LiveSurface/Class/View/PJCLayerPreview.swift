@@ -34,9 +34,9 @@ extension PJCLayerPreview: View
                 
                 HStack
                 {
-                    Image(self.isHidden ? "LayerHide" : "LayerShow") /* TODO:Discover switch ViewModifier to provide resource ... */
+                    Image(self.isHidden ? "eye.slash" : "LayerShow") /* TODO:Discover switch ViewModifier to provide resource ... */
                         .resizable()
-                        .frame(width: 20, height: 20)
+                        .frame(width: 22, height: 22)
                         .onTapGesture
                         {
                             self.isHidden = !self.isHidden

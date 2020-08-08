@@ -137,6 +137,21 @@ extension CGSize
                       size: self)
     }
     
+    func scaled(relativeTo source: CGSize) -> CGSize
+    {
+        let slope = 1.0 / self * source   
+        return self * (slope.width > slope.height ? slope.height : slope.width)
+    }
+    
+    
+    // MARK: - Utility
+    
+    func inset(by value: CGFloat) -> CGSize
+    {
+        return CGSize(width: self.width - value,
+                      height: self.height - value)
+    }
+    
     
     // MARK: - Comparison
     
@@ -163,8 +178,16 @@ extension CGSize
     // MARK: - Operator(s)
     
     static func + (lhs: CGSize,
+                   rhs: CGSize) -> CGSize
+    { return CGSize(width: lhs.width + rhs.width, height: lhs.height + rhs.height) }
+    
+    static func + (lhs: CGSize,
                    rhs: CGPoint) -> CGSize
     { return CGSize(width: lhs.width + rhs.x, height: lhs.height + rhs.y) }
+    
+    static func - (lhs: CGSize,
+                   rhs: CGSize) -> CGSize
+    { return CGSize(width: lhs.width - rhs.width, height: lhs.height - rhs.height) }
     
     static func - (lhs: CGSize,
                    rhs: CGPoint) -> CGSize
@@ -181,5 +204,9 @@ extension CGSize
     static func * (lhs: CGSize,
                    rhs: CGFloat) -> CGSize
     { return CGSize(width: lhs.width * rhs, height: lhs.height * rhs) }
+    
+    static func / (lhs: CGFloat,
+                   rhs: CGSize) -> CGSize
+    { return CGSize(width: lhs / rhs.width, height: lhs / rhs.height) }
 }
 

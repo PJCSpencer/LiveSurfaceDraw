@@ -16,7 +16,7 @@ protocol PJCLiveSurfaceItemPathProvider
     static func path(_ item: PJCLiveSurfaceItem) -> Path
 }
 
-class PJCLiveSurfaceItem: PJCDelegateClass, Identifiable
+class PJCLiveSurfaceItem: Identifiable
 {
     // MARK: - Specifying the Identified Item
     

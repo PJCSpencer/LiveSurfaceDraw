@@ -32,3 +32,18 @@ class PJCLiveSurfaceProject: PJCDelegateClass, ObservableObject
     }
 }
 
+extension PJCLiveSurfaceProject
+{
+    func add()
+    { 
+        let element = PJCLiveSurfaceItem.create(self.items.count)
+        self.items.append(element)
+    }
+}
+
+extension PJCLiveSurfaceProject
+{
+    func share()
+    { print("\(self)::\(#function)") }
+}
+
