@@ -30,7 +30,7 @@ extension PJCLiveSurfaceView: View
                                     trailing: Button(action: self.project.add, label: { Text("New Shape") }))
             
             PJCCanvasView(self.project,
-                          selectedItem: self.selectedItem)
+                          selectedItem: self.selectedItem).edgesIgnoringSafeArea(.all)
         }
         .padding(.leading, 0.95)
         .statusBar(hidden: true)

@@ -41,6 +41,27 @@ extension CGRect
                                            bottom: value,
                                            right: value))
     }
+    
+    func checkerboard(_ size: CGSize) -> [[Self]]
+    {
+        let width = CGFloat(self.width / size.width)
+        let height = CGFloat(self.height / size.height)
+        
+        return size.checkerboard().enumerated().map
+        { (rowIndex, rowValue) in
+            
+            rowValue.enumerated().compactMap
+            { (columnIndex, columnValue) in
+                
+                guard columnValue else { return nil }
+                
+                return CGRect(origin: CGPoint(x: width * CGFloat(columnIndex),
+                                              y: height * CGFloat(rowIndex)),
+                              size: CGSize(width: width,
+                                           height: height))
+            }
+        }
+    }
 }
 
 extension CGPoint
@@ -152,6 +173,19 @@ extension CGSize
                       height: self.height - value)
     }
     
+    func checkerboard() -> [[Bool]]
+    {
+        let numberOfRows = Int(self.height)
+        let numberOfColumns = Int(self.width)
+        
+        return (0..<numberOfRows).map
+        {
+            $0 % 2 == 0
+                ? (0..<numberOfColumns).map { $0 % 2 == 0 }
+                : (0..<numberOfColumns).map { $0 % 2 == 1 }
+        }
+    }
+
     
     // MARK: - Comparison
     
@@ -208,5 +242,9 @@ extension CGSize
     static func / (lhs: CGFloat,
                    rhs: CGSize) -> CGSize
     { return CGSize(width: lhs / rhs.width, height: lhs / rhs.height) }
+    
+    static func / (lhs: CGSize,
+                   rhs: Int) -> CGSize
+    { return CGSize(width: Int(lhs.width) / rhs, height: Int(lhs.height) / rhs) }
 }
 

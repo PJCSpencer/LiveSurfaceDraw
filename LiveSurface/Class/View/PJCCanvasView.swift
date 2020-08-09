@@ -36,16 +36,13 @@ extension PJCCanvasView: View
     {
         ZStack(alignment: .topLeading)
         {
-            self.canvasColor.edgesIgnoringSafeArea(.all)
+            PJCCheckerboardView()
             
             ForEach(self.project.items.filter({ !$0.isHidden }))
             { (item) in PJCCanvasView.body(item) }
             
-            if self.selectedItem.index >= 0 /* TODO:Resolve ... */
-            {
-                Toolset.tool(self.project.modtoolType,
-                             for: self.selectedItem)
-            }
+            Toolset.tool(self.project.modtoolType,
+                         for: self.selectedItem)
         }
         .drawingGroup()
     }

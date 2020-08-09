@@ -31,6 +31,7 @@
 		C2D6827124D02BF2000E4E79 /* PJCGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6827024D02BF2000E4E79 /* PJCGeometry.swift */; };
 		C2D9414C24DE7D4300167693 /* PJCButtonableBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D9414B24DE7D4300167693 /* PJCButtonableBar.swift */; };
 		C2D9414E24DE8F8500167693 /* PJCPathShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D9414D24DE8F8500167693 /* PJCPathShape.swift */; };
+		C2D9415024E0033A00167693 /* PJCCheckerboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D9414F24E0033A00167693 /* PJCCheckerboardView.swift */; };
 		C2FB594224D6B24B00B501F8 /* PJCTransformTool+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB594124D6B24B00B501F8 /* PJCTransformTool+Additions.swift */; };
 		C2FB594424D75AAE00B501F8 /* PJCToolset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB594324D75AAE00B501F8 /* PJCToolset.swift */; };
 		C2FB594624D75B8E00B501F8 /* PJCLayerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FB594524D75B8E00B501F8 /* PJCLayerPreview.swift */; };
@@ -65,6 +66,7 @@
 		C2D6827024D02BF2000E4E79 /* PJCGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCGeometry.swift; sourceTree = "<group>"; };
 		C2D9414B24DE7D4300167693 /* PJCButtonableBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCButtonableBar.swift; sourceTree = "<group>"; };
 		C2D9414D24DE8F8500167693 /* PJCPathShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCPathShape.swift; sourceTree = "<group>"; };
+		C2D9414F24E0033A00167693 /* PJCCheckerboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCCheckerboardView.swift; sourceTree = "<group>"; };
 		C2FB594124D6B24B00B501F8 /* PJCTransformTool+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PJCTransformTool+Additions.swift"; sourceTree = "<group>"; };
 		C2FB594324D75AAE00B501F8 /* PJCToolset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCToolset.swift; sourceTree = "<group>"; };
 		C2FB594524D75B8E00B501F8 /* PJCLayerPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCLayerPreview.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				C2D9414B24DE7D4300167693 /* PJCButtonableBar.swift */,
+				C2D9414F24E0033A00167693 /* PJCCheckerboardView.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			files = (
 				C202AF9424D2DD0E0024B628 /* UIKit+Additions.swift in Sources */,
 				C2D9414C24DE7D4300167693 /* PJCButtonableBar.swift in Sources */,
+				C2D9415024E0033A00167693 /* PJCCheckerboardView.swift in Sources */,
 				C2D6826D24D01F66000E4E79 /* PJCLayersView.swift in Sources */,
 				C2D6826B24D01F55000E4E79 /* PJCCanvasView.swift in Sources */,
 				C202AF9224D2159A0024B628 /* SwiftUI+Additions.swift in Sources */,
