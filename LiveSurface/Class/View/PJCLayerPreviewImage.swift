@@ -20,7 +20,7 @@ struct PJCLayerPreviewImage
     
     // MARK: - Property(s)
     
-    @Binding var item: PJCLiveSurfaceItem
+    @ObservedObject var item: PJCLiveSurfaceItem
 }
 
 extension PJCLayerPreviewImage: View
@@ -34,9 +34,10 @@ extension PJCLayerPreviewImage: View
             
             ZStack
             {
+                // PJCCheckerboardView(scale: 5, bgColor: Color.blue.opacity(0.0625))
                 shape.fill(Color.white)
                 shape.fill(Color.blue.opacity(0.05))
-                shape.stroke(Color.blue.opacity(0.3))
+                shape.stroke(Color.blue.opacity(0.125))
                 
                 self.item
                     .path(self.item.geometry.size.scaled(relativeTo: reader.size)

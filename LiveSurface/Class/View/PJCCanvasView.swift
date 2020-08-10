@@ -9,12 +9,12 @@
 import SwiftUI
 
 
-struct PJCCanvasView
+struct PJCCanvasView // TODO:Support Metal ...
 {
     // MARK: - Property(s)
     
     @ObservedObject private(set) var project: PJCLiveSurfaceProject
-
+    
     @ObservedObject private(set) var selectedItem: PJCLiveSurfaceItem
     
     @State var canvasColor: Color = .white
@@ -26,7 +26,7 @@ struct PJCCanvasView
          selectedItem: PJCLiveSurfaceItem?)
     {
         self.project = project
-        self.selectedItem = selectedItem ?? PJCLiveSurfaceItem()
+        self.selectedItem = selectedItem ?? PJCLiveSurfaceItem.identity
     }
 }
 
@@ -37,9 +37,9 @@ extension PJCCanvasView: View
         ZStack(alignment: .topLeading)
         {
             PJCCheckerboardView()
-            
-            ForEach(self.project.items.filter({ !$0.isHidden }))
-            { (item) in PJCCanvasView.body(item) }
+             
+            ForEach(self.project.items)
+            { (item) in PJCCanvasModelView(item: item) }
             
             Toolset.tool(self.project.modtoolType,
                          for: self.selectedItem)

@@ -18,6 +18,11 @@ protocol PJCLiveSurfaceItemPathProvider
 
 class PJCLiveSurfaceItem: ObservableObject, Identifiable
 {
+    // MARK: - Constant(s)
+    
+    static let identity: PJCLiveSurfaceItem = PJCLiveSurfaceItem()
+    
+    
     // MARK: - Specifying the Identified Item
     
     var id = UUID()
@@ -25,16 +30,16 @@ class PJCLiveSurfaceItem: ObservableObject, Identifiable
     
     // MARK: - Property(s)
     
-    var index: Int
+    @Published var index: Int
     
-    var name: String
+    @Published var name: String
     
     @Published var geometry: PJCGeometry
     
     let path: PJCLiveSurfaceItemPathProviderHandler
     
-    var isHidden: Bool = false
-    
+    @Published var isHidden: Bool = false
+
     
     // MARK: - Initialisation
     

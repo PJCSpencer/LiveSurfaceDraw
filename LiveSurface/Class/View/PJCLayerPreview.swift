@@ -13,11 +13,9 @@ struct PJCLayerPreview
 {
     // MARK: - Property(s)
     
-    @State private(set) var item: PJCLiveSurfaceItem
+    @ObservedObject private(set) var item: PJCLiveSurfaceItem
     
     @State private(set) var projectSize: CGSize
-    
-    @State private(set) var isHidden: Bool = false
 }
 
 extension PJCLayerPreview: View
@@ -34,14 +32,11 @@ extension PJCLayerPreview: View
                 
                 HStack
                 {
-                    Image(self.isHidden ? "eye.slash" : "LayerShow") /* TODO:Discover switch ViewModifier to provide resource ... */
+                    Image(self.item.isHidden ? "eye.slash" : "eye") /* TODO:Discover switch ViewModifier to provide resource ... */
                         .resizable()
                         .frame(width: 22, height: 22)
                         .onTapGesture
-                        {
-                            self.isHidden = !self.isHidden
-                            self.item.isHidden = self.isHidden
-                        }
+                        { self.item.isHidden = !self.item.isHidden }
                     
                     Spacer()
                     
@@ -52,7 +47,7 @@ extension PJCLayerPreview: View
                     
                     Spacer().frame(width: 16)
                     
-                    PJCLayerPreviewImage(item: self.$item)
+                    PJCLayerPreviewImage(item: self.item)
                         .frame(width: self.projectSize.width,
                                height: self.projectSize.height)
                     

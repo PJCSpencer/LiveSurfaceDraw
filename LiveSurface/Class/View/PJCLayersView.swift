@@ -38,7 +38,7 @@ extension PJCLayersView: View
     var body: some View
     {
         GeometryReader
-        { geometry in
+        { reader in
             
             List
             {
@@ -51,7 +51,7 @@ extension PJCLayersView: View
                         self.selectedItem = item
                     }
                     .listRowBackground(self.selectedItem == item ? Color(UIColor.systemGroupedBackground) : Color.clear) // TODO:Resolve ...
-                    .frame(width: geometry.size.width,
+                    .frame(width: reader.size.width,
                            height: 50)
                 }
             }

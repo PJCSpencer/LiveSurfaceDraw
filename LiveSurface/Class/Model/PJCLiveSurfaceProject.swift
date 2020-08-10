@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class PJCLiveSurfaceProject: PJCDelegateClass, ObservableObject
+class PJCLiveSurfaceProject: ObservableObject
 {
     // MARK: - Property(s)
     

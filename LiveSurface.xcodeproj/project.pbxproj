@@ -13,7 +13,7 @@
 		C225A1CD24D36B320008A7E7 /* PJCLayersView+additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225A1CC24D36B320008A7E7 /* PJCLayersView+additions.swift */; };
 		C23C7CA124DAEC8E00B17D6C /* PJCLiveSurfaceItem+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C7CA024DAEC8E00B17D6C /* PJCLiveSurfaceItem+Additions.swift */; };
 		C23C7CA524DD442700B17D6C /* PJCLayerPreviewImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C7CA424DD442700B17D6C /* PJCLayerPreviewImage.swift */; };
-		C29B1BB924D02ED50023DEE4 /* PJCCanvasView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B1BB824D02ED50023DEE4 /* PJCCanvasView+Additions.swift */; };
+		C29B1BB924D02ED50023DEE4 /* PJCCanvasModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B1BB824D02ED50023DEE4 /* PJCCanvasModelView.swift */; };
 		C29B1BBB24D043090023DEE4 /* PJCSimpleShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B1BBA24D043090023DEE4 /* PJCSimpleShapes.swift */; };
 		C29B1BBD24D046E50023DEE4 /* PJCTransformTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B1BBC24D046E50023DEE4 /* PJCTransformTool.swift */; };
 		C29B1BC224D05D740023DEE4 /* PJCLiveSurfaceProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B1BC124D05D740023DEE4 /* PJCLiveSurfaceProject.swift */; };
@@ -46,7 +46,7 @@
 		C225A1CC24D36B320008A7E7 /* PJCLayersView+additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PJCLayersView+additions.swift"; sourceTree = "<group>"; };
 		C23C7CA024DAEC8E00B17D6C /* PJCLiveSurfaceItem+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PJCLiveSurfaceItem+Additions.swift"; sourceTree = "<group>"; };
 		C23C7CA424DD442700B17D6C /* PJCLayerPreviewImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCLayerPreviewImage.swift; sourceTree = "<group>"; };
-		C29B1BB824D02ED50023DEE4 /* PJCCanvasView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PJCCanvasView+Additions.swift"; sourceTree = "<group>"; };
+		C29B1BB824D02ED50023DEE4 /* PJCCanvasModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCCanvasModelView.swift; sourceTree = "<group>"; };
 		C29B1BBA24D043090023DEE4 /* PJCSimpleShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCSimpleShapes.swift; sourceTree = "<group>"; };
 		C29B1BBC24D046E50023DEE4 /* PJCTransformTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCTransformTool.swift; sourceTree = "<group>"; };
 		C29B1BC124D05D740023DEE4 /* PJCLiveSurfaceProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJCLiveSurfaceProject.swift; sourceTree = "<group>"; };
@@ -191,7 +191,7 @@
 			children = (
 				C2D6825524D01A9F000E4E79 /* PJCLiveSurfaceView.swift */,
 				C2D6826A24D01F55000E4E79 /* PJCCanvasView.swift */,
-				C29B1BB824D02ED50023DEE4 /* PJCCanvasView+Additions.swift */,
+				C29B1BB824D02ED50023DEE4 /* PJCCanvasModelView.swift */,
 				C2D6826C24D01F66000E4E79 /* PJCLayersView.swift */,
 				C225A1CC24D36B320008A7E7 /* PJCLayersView+additions.swift */,
 				C2FB594524D75B8E00B501F8 /* PJCLayerPreview.swift */,
@@ -308,7 +308,7 @@
 				C23C7CA524DD442700B17D6C /* PJCLayerPreviewImage.swift in Sources */,
 				C2FB594A24D9A08C00B501F8 /* CGGeometry+Additions.swift in Sources */,
 				C2D6825624D01A9F000E4E79 /* PJCLiveSurfaceView.swift in Sources */,
-				C29B1BB924D02ED50023DEE4 /* PJCCanvasView+Additions.swift in Sources */,
+				C29B1BB924D02ED50023DEE4 /* PJCCanvasModelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

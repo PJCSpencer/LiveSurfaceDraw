@@ -16,7 +16,7 @@ struct PJCCheckerboardShape: Identifiable
     let rect: CGRect
 }
 
-struct PJCCheckerboardView
+struct PJCCheckerboardView // TODO:Support Metal ...
 {
     @State var scale: Int = 10
     

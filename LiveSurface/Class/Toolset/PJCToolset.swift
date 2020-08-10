@@ -44,7 +44,7 @@ class Toolset // TODO:Support protocol ...
                      for item: PJCLiveSurfaceItem?) -> AnyView?
     {
         guard let item = item,
-            item.index >= 0 else
+            item != PJCLiveSurfaceItem.identity else
         { return nil }
         
         switch tool
