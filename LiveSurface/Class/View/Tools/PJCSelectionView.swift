@@ -19,6 +19,7 @@ protocol PJCControlPointShapeProvider
 // MARK: - PJCSelectionControlPointShape
 enum PJCControlPointShape
 {
+    case none
     case circle
     case square
 }
@@ -32,7 +33,7 @@ extension PJCControlPointShape // TODO:Support protocol ...
 // MARK: - PJCSelectionControlPointPosition
 enum PJCControlPointPosition: CGPoint, CaseIterable
 {
-    // case centre = {0.5, 0.5}
+    case centre = "{0.5, 0.5}"
     // case rotate = {0.5, -0.2}
     
     case topLeft = "{0, 0}", topMiddle = "{0.5, 0}", topRight = "{1, 0}"
@@ -48,8 +49,10 @@ extension PJCControlPointPosition: PJCControlPointShapeProvider
         {
         case .topLeft, .topRight, .bottomLeft, .bottomRight:
             return .circle
-        default:
+        case .leftMiddle, .topMiddle, .bottomMiddle, .rightMiddle:
             return .square
+        default:
+            return .none
         }
     }
 }
@@ -58,7 +61,7 @@ struct PJCControlPoint: View, Identifiable
 {
     // MARK: - Constant(s)
     
-    static let radius: CGFloat = 4.0
+    static let radius: CGFloat = 3.0
     
     static let lineWidth: CGFloat = 1.5
     
@@ -90,6 +93,10 @@ struct PJCControlPoint: View, Identifiable
     
     var selectionFrame: CGRect
     {
+        if self.position == .centre
+        { return self.controlFrame.insetBy(dx: PJCControlPoint.radius,
+                                           dy: PJCControlPoint.radius) }
+        
         let radius: CGFloat = PJCControlPoint.radius * PJCControlPoint.hitTestingScale
         let pt = self.position.rawValue
         let x = self.controlFrame.origin.x + (self.controlFrame.width * pt.x) - radius
@@ -179,7 +186,7 @@ struct PJCSelectionView: View
                                            dashPhase: -cornerRadius))
                 .allowsHitTesting(false)
             
-            ForEach(self.controlPoints())
+            ForEach(self.controlPoints().filter({ $0.shape != .none }))
             { (controlPoint) in controlPoint }.allowsHitTesting(false)
         }
     }

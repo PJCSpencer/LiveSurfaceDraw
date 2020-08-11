@@ -118,6 +118,10 @@ extension CGPoint
                    rhs: CGFloat) -> CGPoint
     { return CGPoint(x: lhs.x - rhs, y: lhs.y - rhs) }
     
+    static func - (lhs: CGPoint,
+                   rhs: CGSize) -> CGPoint
+    { return CGPoint(x: lhs.x - rhs.width, y: lhs.y - rhs.height) }
+    
     static func * (lhs: CGPoint,
                    rhs: CGPoint) -> CGPoint
     { return CGPoint(x: lhs.x * rhs.x, y: lhs.y * rhs.y) }
@@ -144,6 +148,8 @@ extension CGSize
     static let unitHeight: CGSize = CGSize(width: 0, height: 1)
     
     static let unitHeightNegative: CGSize = CGSize(width: 1, height: -1)
+    
+    static let unitMiddle: CGSize = CGSize(width: 0.5, height: 0.5)
     
     
     // MARK: - Conversion

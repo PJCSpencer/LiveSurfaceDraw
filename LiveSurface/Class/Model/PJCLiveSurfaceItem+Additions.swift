@@ -20,7 +20,7 @@ extension PJCLiveSurfaceItem // TODO:Support protocol ...
     static func create(_ index: Int) -> PJCLiveSurfaceItem
     {
         let radius: CGFloat = 50.0
-        let scaledRadius: CGFloat = radius * CGFloat.random(in: 0.5...3.0)
+        let scaledRadius: CGFloat = radius * CGFloat.random(in: 1...4.0)
         let width = (UIScreen.main.bounds.width * 1) - scaledRadius
         let height = (UIScreen.main.bounds.height * 0.85) - scaledRadius
         let pt = CGPoint(x: CGFloat.random(in: radius..<width),
@@ -38,7 +38,7 @@ extension PJCLiveSurfaceItem // TODO:Support protocol ...
     }
 }
 
-class PJCLiveSurfaceItemSelection: ObservableObject
+class PJCLiveSurfaceItemSelection: ObservableObject // TODO:
 {
     @Published var item: PJCLiveSurfaceItem
     
