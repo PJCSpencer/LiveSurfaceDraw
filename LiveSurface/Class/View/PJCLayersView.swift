@@ -46,18 +46,26 @@ extension PJCLayersView: View
                 { (item) in
                     
                     PJCLayerPreview(item: item,
-                                    projectSize: self.project.size * Self.previewScale).onTapGesture
-                    {
-                        self.selectedItem = item
-                    }
+                        projectSize: self.project.size * Self.previewScale)
+                        .onTapGesture { self.selectedItem = item }
+                        .onLongPressGesture (perform: self.onLongPress)
+                        
                     .listRowBackground(self.selectedItem == item ? Color(UIColor.systemGroupedBackground) : Color.clear) // TODO:Resolve ...
                     .frame(width: reader.size.width,
                            height: 50)
                 }
+                .onDelete(perform: { (indexes) in print("indexes:\(indexes.indices)") })
             }
             .navigationBarTitle("Layers")
         }
     }
+}
+
+// MARK: - Action(s)
+extension PJCLayersView
+{
+    func onLongPress()
+    { print("\(Self.self)::\(#function)") }
 }
 
 // MARK: - PreviewProvider

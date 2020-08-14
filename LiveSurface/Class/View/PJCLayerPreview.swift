@@ -40,10 +40,11 @@ extension PJCLayerPreview: View
                     
                     Spacer()
                     
-                    Text(self.item.name)
-                        .frame(alignment: .trailing)
+                    TextField("\(self.item.name)", text: self.$item.name)
                         .font(.system(size: 16))
+                        .multilineTextAlignment(.trailing)
                         .foregroundColor(Color(white: 0.2))
+                        .fixedSize()
                     
                     Spacer().frame(width: 16)
                     
@@ -53,8 +54,10 @@ extension PJCLayerPreview: View
                     
                     Spacer().frame(width: 32)
                     
-                }.frame(alignment: .trailing)
-            }.frame(width: reader.size.width)
+                }
+                .frame(alignment: .trailing)
+            }
+            .frame(width: reader.size.width)
         }
     }
 }

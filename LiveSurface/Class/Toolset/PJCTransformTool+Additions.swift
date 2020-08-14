@@ -34,8 +34,8 @@ class PJCTransforn2DTranslate
     static func translate(_ geometry: PJCGeometry,
                           _ drag: PJCTransformDrag) -> PJCGeometry
     {
-        let inset = drag.start - drag.anchor
-        let pt = drag.location - inset
+        let inset: CGPoint = drag.start - drag.anchor
+        let pt: CGPoint = drag.location - inset
         
         return PJCGeometry(pt, size: geometry.size)
     }

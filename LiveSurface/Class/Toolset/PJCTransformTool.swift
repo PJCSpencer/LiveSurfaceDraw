@@ -22,16 +22,9 @@ struct PJCTransformDrag
     
     // MARK: - Initialisation
     
-    init()
-    {
-        self.anchor = .zero
-        self.start = .zero
-        self.location = .zero
-    }
-    
     init(_ anchor: CGPoint,
-         _ start: CGPoint,
-         _ location: CGPoint)
+         start: CGPoint,
+         location: CGPoint)
     {
         self.anchor = anchor
         self.start = start
@@ -58,11 +51,15 @@ struct PJCTransformTool // TODO:Support PJCModifierProvider ...
             
                 if value.location.length > 0,
                     self.controlPoint != nil
-                { self.drag = PJCTransformDrag(self.origin, value.startLocation, value.location) }
+                {
+                    self.drag = PJCTransformDrag(self.origin,
+                                                 start: value.startLocation,
+                                                 location: value.location)
+                }
                 
                 guard self.controlPoint == nil else
                 { return }
-            
+                
                 self.origin = self.item.geometry.origin
                 self.controlPoint = PJCSelectionView(rect: self.item.geometry.rect)
                     .controlPoints()
@@ -71,8 +68,8 @@ struct PJCTransformTool // TODO:Support PJCModifierProvider ...
         .onEnded
         { (value) in
             
-            self.origin = .zero
             self.controlPoint = nil
+            self.origin = .zero
             self.drag = nil
         }
     }
@@ -83,8 +80,8 @@ extension PJCTransformTool: View
     var body: some View
     { 
         if let drag = self.drag,
-            let controlPoint = self.controlPoint,
-            let handler = PJCTransform2D.table[controlPoint.position]
+            let position = self.controlPoint?.position,
+            let handler = PJCTransform2D.table[position]
         {
             self.item.geometry = handler(self.item.geometry,
                                          drag)
